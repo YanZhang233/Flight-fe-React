@@ -1,10 +1,39 @@
 import React from "react";
+import axios from "../base.js";
 
 class Request extends React.Component {
 
+    state = {
+        haveInterest: false
+    }
+
+    componentWillMount() {
+        this.checkInterest();
+    }
+
+    checkInterest = () => {
+        axios.get(`/flight/like/${this.props.details.id}`
+        )
+        .then(res => {
+            if(res.data.status === 0) {
+                this.setState({ haveInterest: true});
+            }
+        })
+    }
+
+    handleClick = event => {
+        const id = this.props.details.id;
+        if(this.state.haveInterest) {
+            this.props.removeInterest(id);
+        } else {
+            this.props.sendInterest(id);
+        }
+        const updatedInterest = !this.state.haveInterest;
+        this.setState({ haveInterest: updatedInterest });
+    }
+    
     render() {
         const { 
-            id,
             airport, 
             destination, 
             time, 
@@ -25,10 +54,10 @@ class Request extends React.Component {
             <p>{numOfPeople}</p>
             <p>{baggage}</p>
             <p>{like}</p>
-            <button
-                onClick={ () => this.props.sendInterest(id) }
+            <button 
+                onClick={this.handleClick}
             >
-            I have interest
+                {this.state.haveInterest ? "Cancel Interest" : "I Have Interest"}
             </button>
           </li>
         );

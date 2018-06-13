@@ -18,6 +18,7 @@ class Volunteer extends React.Component {
         axios.get(`/flight`
         )
         .then(res => {
+            console.log(res.data);
             if(res.data.status === 0) {
                 this.setState({ requests: res.data.data.content });
             }
@@ -32,11 +33,24 @@ class Volunteer extends React.Component {
             if(res.data.status === 0) {
                 alert("Your interest has been sent to the student!");
                 this.getRequests();
+            } else {
+                alert(res.data.msg);
             }
-            console.log(res.data);
         })
     }
 
+    removeInterest = (requestId) => {
+        axios.delete(`/flight/like/${requestId}`
+          )
+          .then(res => {
+              if(res.data.status === 0) {
+                alert("Remove your interest success!");
+                this.getRequests();
+              } else {
+                alert(res.data.msg);
+              }
+          })
+    }
 
     render() {
         return (
@@ -48,6 +62,7 @@ class Volunteer extends React.Component {
                         key={key}
                         details={this.state.requests[key]}
                         sendInterest={this.sendInterest}
+                        removeInterest={this.removeInterest}
                       />
                     ))}
                 </ul>

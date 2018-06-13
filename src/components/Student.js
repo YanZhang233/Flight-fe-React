@@ -48,6 +48,8 @@ class Student extends React.Component {
             if(res.data.status === 0) {
                 this.findRequest();
                 alert("Add your request success!");
+            } else {
+                alert(res.data.msg);
             }
         })
     }
@@ -71,6 +73,8 @@ class Student extends React.Component {
             if(res.data.status === 0) {
                 this.findRequest();
                 //alert("Update your request success!");
+            } else {
+                alert(res.data.msg);
             }
         })
     };
@@ -82,6 +86,8 @@ class Student extends React.Component {
               if(res.data.status === 0) {
                 this.setState({ requestInfo: null });
                 alert("Cancel your request success!");
+              } else {
+                alert(res.data.msg);
               }
           })
     };

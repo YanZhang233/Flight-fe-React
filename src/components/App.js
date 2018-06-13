@@ -33,9 +33,9 @@ class App extends React.Component {
             })
     }
 
-    login = (userEmail, userPassword) => {
+    login = (email, password) => {
         axios.post(`/user`, 
-                    Qs.stringify({ userEmail, userPassword })
+                    Qs.stringify({ email, password })
             )
             .then(res => {
                 if(res.data.status === 0) {
@@ -58,6 +58,8 @@ class App extends React.Component {
                 cookie.remove('flightGWU_pass', { path: '/' });
                 cookie.remove('JSESSIONID', { path: '/' });
                 alert("Log out success!");
+            } else {
+                alert(res.data.msg);
             }
         })
     };

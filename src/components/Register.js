@@ -25,7 +25,7 @@ class Register extends React.Component {
                         alert("Sign up successfully as a new student!");
                         this.props.history.push(`/`);
                     } else {
-                        alert("This Email has been used!");
+                        alert(res.data.msg);
                     }
                 })
         } else if(role === `volunteer`) {
@@ -37,7 +37,7 @@ class Register extends React.Component {
                         alert("Sign up successfully as a volunteer!");
                         this.props.history.push(`/`);
                     } else {
-                        alert("Only support Edu Email!");
+                        alert(res.data.msg);
                     }
                 })
         }
