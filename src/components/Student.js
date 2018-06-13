@@ -8,7 +8,7 @@ class Student extends React.Component {
 
     state = {
         stuId: null,
-        requestInfo: null,
+        requestInfo: null
     }
 
     componentWillMount() {
@@ -28,9 +28,9 @@ class Student extends React.Component {
         })
     };
 
-    addRequest = request => {
+    addRequest = newRequest => {
 
-        const { airport, destination, time, flightInfo, description, numOfPeople, baggage} = request;
+        const { airport, destination, time, flightInfo, description, numOfPeople, baggage} = newRequest;
 
         axios.post(`/flight`, 
                 Qs.stringify({ 

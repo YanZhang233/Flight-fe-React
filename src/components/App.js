@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "../base.js";
+import Qs from 'qs';
+import cookie from "react-cookies";
 import Login from "./Login";
 import Student from "./Student";
 import Volunteer from "./Volunteer";
@@ -14,8 +16,36 @@ class App extends React.Component {
         role: null
     }
 
-    authenticate = (userId, userRole) => {
-        this.setState({ uid: userId, role: userRole });
+    componentWillMount() {
+        this.loginWithCookie();
+    }
+
+    loginWithCookie = () => {
+        axios.post(`/user`
+            )
+            .then(res => {
+                console.log(res.data);
+                if(res.data.status === 0) {
+                    const userId = res.data.data.id;
+                    const userRole = res.data.data.role;
+                    this.setState({ uid: userId, role: userRole });
+                }
+            })
+    }
+
+    login = (userEmail, userPassword) => {
+        axios.post(`/user`, 
+                    Qs.stringify({ userEmail, userPassword })
+            )
+            .then(res => {
+                if(res.data.status === 0) {
+                    const userId = res.data.data.id;
+                    const userRole = res.data.data.role;
+                    this.setState({ uid: userId, role: userRole });
+                } else {
+                    alert(res.data.msg);
+                }
+            })
     };
 
     logout = () => {
@@ -24,6 +54,9 @@ class App extends React.Component {
         .then(res => {
             if(res.data.status === 0) {
                 this.setState({ uid: null });
+                cookie.remove('flightGWU_email', { path: '/' });
+                cookie.remove('flightGWU_pass', { path: '/' });
+                cookie.remove('JSESSIONID', { path: '/' });
                 alert("Log out success!");
             }
         })
@@ -34,7 +67,7 @@ class App extends React.Component {
 
         //if the user has not logged in
         if(!this.state.uid) {
-            return <Login authenticate={this.authenticate} />;
+            return <Login login={this.login} />;
         } else {
             //if the user is a student
             if(this.state.role === 0) {

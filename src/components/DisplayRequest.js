@@ -29,7 +29,7 @@ class DisplayRequest extends React.Component {
                 disabled={noLike}
                 onClick={this.props.likeSwitch}
             >
-                {noLike ? "No one wants to pick you up :)" : {like}}
+                {noLike ? "No one wants to pick you up :)" : like}
             </button>
             <button onClick={this.props.editSwitch}>Edit</button>
           </li>
