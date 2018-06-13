@@ -18,7 +18,6 @@ class Login extends React.Component {
             )
             .then(res => {
                 if(res.data.status === 0) {
-                    console.log(res.data);
                     const userId = res.data.data.id;
                     const userRole = res.data.data.role;
                     this.props.authenticate(userId, userRole);

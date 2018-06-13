@@ -35,34 +35,30 @@ class App extends React.Component {
         //if the user has not logged in
         if(!this.state.uid) {
             return <Login authenticate={this.authenticate} />;
+        } else {
+            //if the user is a student
+            if(this.state.role === 0) {
+                return (
+                    <div>
+                        <Student 
+                            studentId = {this.state.uid}
+                        />
+                        {logout}
+                    </div>
+                );
+            } else if(this.state.role === 2) {
+                return (
+                    <div>
+                        <Volunteer 
+                            volunteerId = {this.state.uid}
+                        />
+                        {logout}
+                    </div>
+                );
+            } else {
+                return <NotFound />;
+            }
         }
-
-        //if the user is a student
-        if(this.state.role === 0) {
-            return (
-                <div>
-                    <Student 
-                        studentId = {this.state.uid}
-                    />
-                    {logout}
-                </div>
-            );
-        }
-
-        //if the user is a volunteer
-        if(this.state.role === 2) {
-            return (
-                <div>
-                    <Volunteer 
-                        volunteerId = {this.state.uid}
-                    />
-                    {logout}
-                </div>
-            );
-        }
-
-        return <NotFound />;
-
     }
 }
 

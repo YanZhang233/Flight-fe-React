@@ -12,6 +12,7 @@ class Student extends React.Component {
     }
 
     componentWillMount() {
+        // this.state.stuId = null
         this.setState({ stuId: this.props.studentId });
         this.findRequest();
     }
@@ -20,6 +21,7 @@ class Student extends React.Component {
         axios.get(`/flight/user`
         )
         .then(res => {
+            console.log(res.data);
             if(res.data.status === 0) {
                 this.setState({ requestInfo: res.data.data });
             }
@@ -50,9 +52,27 @@ class Student extends React.Component {
         })
     }
 
-    updateRequest = () => {
-        this.findRequest();
-        alert("update your request success!");
+    updateRequest = updatedRequest => {
+        const { airport, destination, time, flightInfo, description, numOfPeople, baggage} = updatedRequest;
+
+        axios.patch(`/flight/modify`,
+                Qs.stringify({ 
+                    airport, 
+                    destination,
+                    time,
+                    flightInfo,
+                    description,
+                    numOfPeople,
+                    baggage
+                }),
+        )
+        .then(res => {
+            console.log(res.data);
+            if(res.data.status === 0) {
+                this.findRequest();
+                //alert("Update your request success!");
+            }
+        })
     };
 
     deleteRequest = () => {
