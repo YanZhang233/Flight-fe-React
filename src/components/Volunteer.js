@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axios from "../base.js";
 import Request from "./Request";
 
 class Volunteer extends React.Component {

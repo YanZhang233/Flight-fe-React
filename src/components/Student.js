@@ -1,7 +1,7 @@
 import React from "react";
 import Display from "./Display";
 import AddRequest from "./AddRequest";
-import axios from "axios";
+import axios from "../base.js";
 import Qs from 'qs';
 
 class Student extends React.Component {

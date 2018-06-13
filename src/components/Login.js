@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axios from "../base.js";
 import Qs from 'qs';
 import { withRouter } from 'react-router-dom';
 
@@ -12,12 +12,13 @@ class Login extends React.Component {
 
         const email = this.emailRef.value.value;
         const password = this.passRef.value.value;
-        
-        axios.post(`http://localhost:8080/user`, 
+         
+        axios.post(`/user`, 
                     Qs.stringify({ email, password })
             )
             .then(res => {
                 if(res.data.status === 0) {
+                    console.log(res.data);
                     const userId = res.data.data.id;
                     const userRole = res.data.data.role;
                     this.props.authenticate(userId, userRole);

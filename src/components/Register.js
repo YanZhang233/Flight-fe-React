@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axios from "../base.js";
 import Qs from 'qs';
 
 class Register extends React.Component {
@@ -17,7 +17,7 @@ class Register extends React.Component {
         const password = this.passRef.value.value;
 
         if(role === `student`) {
-            axios.post(`http://localhost:8080/user/new`, 
+            axios.post(`/user/new`, 
                     Qs.stringify({ email, wechat, password }),
                 )
                 .then(res => {
@@ -29,7 +29,7 @@ class Register extends React.Component {
                     }
                 })
         } else if(role === `volunteer`) {
-            axios.post(`http://localhost:8080/user/volunteer`, 
+            axios.post(`/user/volunteer`, 
                     Qs.stringify({ email, wechat, password }),
                 )
                 .then(res => {
