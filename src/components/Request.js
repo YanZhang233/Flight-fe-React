@@ -34,6 +34,7 @@ class Request extends React.Component {
     
     render() {
         const { 
+            requestUserId,
             airport, 
             destination, 
             time, 
@@ -54,6 +55,11 @@ class Request extends React.Component {
             <p>Number Of People: {numOfPeople}</p>
             <p>Baggage: {baggage}</p>
             <p>There are {like} people want to pick him/her up.</p>
+            <button 
+                onClick={() => this.props.checkStudent(requestUserId)}
+            >
+                Check the Infomation of the student
+            </button>
             <button 
                 onClick={this.handleClick}
             >

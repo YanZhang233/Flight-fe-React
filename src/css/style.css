@@ -757,3 +757,14 @@ p {
   background: 0;
   color: #3e588f;
 }
+.logout {
+  width: 10%;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 16px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  background: 0;
+  color: #3e588f;
+}

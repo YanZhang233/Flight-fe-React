@@ -67,8 +67,8 @@ class App extends React.Component {
     };
 
     render() {
-        const logout = <button onClick={this.logout}>Log Out!</button>;
-
+        const logout = <button className="logout" onClick={this.logout}>Log Out</button>;
+        
         //if the user has not logged in
         if(!this.state.uid) {
             return (
@@ -81,19 +81,19 @@ class App extends React.Component {
             if(this.state.role === 0) {
                 return (
                     <div>
+                        {logout}
                         <Student 
                             studentId = {this.state.uid}
                         />
-                        {logout}
                     </div>
                 );
             } else if(this.state.role === 2) {
                 return (
                     <div>
+                        {logout}
                         <Volunteer 
                             volunteerId = {this.state.uid}
                         />
-                        {logout}
                     </div>
                 );
             } else {

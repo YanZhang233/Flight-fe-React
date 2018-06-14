@@ -10,6 +10,12 @@ class Register extends React.Component {
     roleRef = React.createRef();
     passRef = React.createRef();
 
+    graduatedFromRef = React.createRef();
+    genderRef = React.createRef();
+    homeTownRef = React.createRef();
+    majorRef = React.createRef();
+    actualNameRef = React.createRef();
+
     handleSubmit = event => {
         event.preventDefault();
 
@@ -18,9 +24,24 @@ class Register extends React.Component {
         const role = this.roleRef.value.value;
         const password = this.passRef.value.value;
 
+        const graduatedFrom = this.graduatedFromRef.value.value;
+        const gender = this.genderRef.value.value;
+        const homeTown = this.homeTownRef.value.value;
+        const major = this.majorRef.value.value;
+        const actualName = this.actualNameRef.value.value;
+
         if(role === `student`) {
             axios.post(`/user/new`, 
-                    Qs.stringify({ email, wechat, password }),
+                    Qs.stringify({ 
+                        email, 
+                        wechat, 
+                        password, 
+                        graduatedFrom, 
+                        gender,
+                        homeTown,
+                        major, 
+                        actualName
+                    }),
                 )
                 .then(res => {
                     if(res.data.status === 0) {
@@ -32,7 +53,16 @@ class Register extends React.Component {
                 })
         } else if(role === `volunteer`) {
             axios.post(`/user/volunteer`, 
-                    Qs.stringify({ email, wechat, password }),
+                    Qs.stringify({ 
+                        email, 
+                        wechat, 
+                        password, 
+                        graduatedFrom, 
+                        gender,
+                        homeTown,
+                        major, 
+                        actualName
+                    }),
                 )
                 .then(res => {
                     if(res.data.status === 0) {
@@ -60,23 +90,51 @@ class Register extends React.Component {
                         name="email"
                         type="email"
                         ref={this.emailRef}
-                        placeholder="Email"
+                        placeholder="Email*"
                     />
                     <input
                         name="wechat"
                         type="text"
                         ref={this.wechatRef}
-                        placeholder="Wechat"
+                        placeholder="Wechat*"
                     />
                     <select name="role" ref={this.roleRef}>
                         <option value="student">I am student</option>
                         <option value="volunteer">I am volunteer</option>
                     </select>
                     <input
+                        name="graduatedFrom"
+                        type="text"
+                        ref={this.graduatedFromRef}
+                        placeholder="Graduated From"
+                    />
+                    <select name="gender" ref={this.genderRef}>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <input
+                        name="homeTown"
+                        type="text"
+                        ref={this.homeTownRef}
+                        placeholder="Hometown"
+                    />
+                    <input
+                        name="major"
+                        type="text"
+                        ref={this.majorRef}
+                        placeholder="Major"
+                    />
+                    <input
+                        name="actualName"
+                        type="text"
+                        ref={this.actualNameRef}
+                        placeholder="Actual Name"
+                    />
+                    <input
                         name="password"
                         type="password"
                         ref={this.passRef}
-                        placeholder="Password"
+                        placeholder="Password*"
                     />
                     <button type="submit">Sign Up</button>
                     <button onClick={() => {this.props.history.push(`/`)}}>

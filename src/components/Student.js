@@ -1,4 +1,5 @@
 import React from "react";
+import StudentInfo from "./StudentInfo";
 import Display from "./Display";
 import AddRequest from "./AddRequest";
 import axios from "../base.js";
@@ -8,7 +9,8 @@ class Student extends React.Component {
 
     state = {
         stuId: null,
-        requestInfo: null
+        requestInfo: null,
+        goToPerson: false
     }
 
     componentWillMount() {
@@ -95,25 +97,47 @@ class Student extends React.Component {
         }
     };
 
+    infoSwitch = () => {
+        const ifGoToPerson = !this.state.goToPerson;
+        this.setState({ goToPerson: ifGoToPerson });
+    }
+
     render() {
-        //if the student has a request
-        if(this.state.requestInfo) {
+        const studentInfo = <button className="logout" onClick={this.infoSwitch}>Student Information</button>;
+
+        if(this.state.goToPerson) {
             return (
-                <Display
-                    requestInfo={this.state.requestInfo}
-                    updateRequest={this.updateRequest}
-                    deleteRequest={this.deleteRequest}
+                <StudentInfo
+                    studentId={this.props.studentId} 
+                    infoSwitch={this.infoSwitch}
                 />
             );
+        } else {
+            //if the student has a request
+            if(this.state.requestInfo) {
+                return (
+                    <div>
+                        {studentInfo}
+                    <Display
+                        requestInfo={this.state.requestInfo}
+                        updateRequest={this.updateRequest}
+                        deleteRequest={this.deleteRequest}
+                    />
+                    </div>
+                );
+            }
+            return (
+                <div>
+                    {studentInfo}
+                <div className="display-info">
+                    <h2 className="info-title">Waiting for pick-up...😁</h2>
+                    <AddRequest 
+                        addRequest={this.addRequest}
+                    />
+                </div>
+                </div>
+            );
         }
-        return (
-            <div className="display-info">
-                <h2 className="info-title">Waiting for pick-up...😁</h2>
-                <AddRequest 
-                    addRequest={this.addRequest}
-                />
-            </div>
-        );
         
     }
 }

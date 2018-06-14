@@ -1,12 +1,14 @@
 import React from "react";
 import axios from "../base.js";
+import StudentInRequest from "./StudentInRequest";
 import Request from "./Request";
 
 class Volunteer extends React.Component {
 
     state = {
         volId: null,
-        requests: []
+        requests: [],
+        requestStudentId: null
     }
 
     componentWillMount() {
@@ -52,22 +54,36 @@ class Volunteer extends React.Component {
           })
     }
 
+    checkStudent = (requestUserId) => {
+        this.setState({ requestStudentId: requestUserId });
+    }
+
     render() {
-        return (
-            <div className="display-info">
-                <p className="info-title">They are waiting for pick-up...</p>
-                <ul>
-                    {Object.keys(this.state.requests).map(key => (
-                      <Request
-                        key={key}
-                        details={this.state.requests[key]}
-                        sendInterest={this.sendInterest}
-                        removeInterest={this.removeInterest}
-                      />
-                    ))}
-                </ul>
-            </div>
-        );
+        if(this.state.requestStudentId) {
+            return (
+                <StudentInRequest 
+                    studentId={this.state.requestStudentId}
+                    checkStudent={this.checkStudent}
+                />
+            );
+        } else {
+            return (
+                <div className="display-info">
+                    <p className="info-title">They are waiting for pick-up...</p>
+                    <ul>
+                        {Object.keys(this.state.requests).map(key => (
+                          <Request
+                            key={key}
+                            details={this.state.requests[key]}
+                            sendInterest={this.sendInterest}
+                            removeInterest={this.removeInterest}
+                            checkStudent={this.checkStudent}
+                          />
+                        ))}
+                    </ul>
+                </div>
+            );
+        }
     }
 }
 
