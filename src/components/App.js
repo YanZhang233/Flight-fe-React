@@ -2,6 +2,7 @@ import React from "react";
 import axios from "../base.js";
 import Qs from 'qs';
 import cookie from "react-cookies";
+import Intro from "./Intro";
 import Login from "./Login";
 import Student from "./Student";
 import Volunteer from "./Volunteer";
@@ -69,7 +70,12 @@ class App extends React.Component {
 
         //if the user has not logged in
         if(!this.state.uid) {
-            return <Login login={this.login} />;
+            return (
+                <div>
+                    <Intro />
+                    <Login login={this.login} />
+                </div>
+            );
         } else {
             //if the user is a student
             if(this.state.role === 0) {
