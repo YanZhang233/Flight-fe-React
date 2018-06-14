@@ -45,15 +45,15 @@ class Request extends React.Component {
         } = this.props.details;
 
         return (
-          <li className="menu-fish">
-            <p>{airport}</p>
-            <p>{destination}</p>
-            <p>{time}</p>
-            <p>{flightInfo}</p>
-            <p>{description}</p>
-            <p>{numOfPeople}</p>
-            <p>{baggage}</p>
-            <p>{like}</p>
+          <li className="display-info">
+            <p>Airport: {airport}</p>
+            <p>Destination: {destination}</p>
+            <p>Time: {time}</p>
+            <p>FlightInfo: {flightInfo}</p>
+            <p>Description: {description}</p>
+            <p>Number Of People: {numOfPeople}</p>
+            <p>Baggage: {baggage}</p>
+            <p>There are {like} people want to pick him/her up.</p>
             <button 
                 onClick={this.handleClick}
             >

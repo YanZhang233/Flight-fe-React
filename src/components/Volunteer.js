@@ -54,9 +54,9 @@ class Volunteer extends React.Component {
 
     render() {
         return (
-            <div className="inventory">
-                Volunteer
-                <ul className="fishes">
+            <div className="display-info">
+                <p className="info-title">They are waiting for pick-up...</p>
+                <ul>
                     {Object.keys(this.state.requests).map(key => (
                       <Request
                         key={key}

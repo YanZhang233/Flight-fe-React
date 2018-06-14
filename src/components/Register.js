@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "../base.js";
 import Qs from 'qs';
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 class Register extends React.Component {
     emailRef = React.createRef();
@@ -45,35 +46,43 @@ class Register extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <h2>Sign Up</h2>
-                <input
-                    name="email"
-                    type="email"
-                    ref={this.emailRef}
-                    placeholder="Email"
-                />
-                <input
-                    name="wechat"
-                    type="text"
-                    ref={this.wechatRef}
-                    placeholder="Wechat"
-                />
-                <select name="role" ref={this.roleRef}>
-                    <option value="student">I am student</option>
-                    <option value="volunteer">I am volunteer</option>
-                </select>
-                <input
-                    name="password"
-                    type="password"
-                    ref={this.passRef}
-                    placeholder="Password"
-                />
-                <button type="submit">Sign Up</button>
-                <button onClick={() => {this.props.history.push(`/`)}}>
-                    Log In
-                </button>
-            </form>
+            <ReactCSSTransitionGroup
+                transitionName="AppearTransition"
+                transitionAppear={ true }
+                transitionAppearTimeout={ 1000 }
+                transitionEnter={ false }
+                transitionLeave={ false }
+            >
+                <form className="entry" onSubmit={this.handleSubmit}>
+                    <h2 className="entry-title">Sign Up</h2>
+                    <input
+                        name="email"
+                        type="email"
+                        ref={this.emailRef}
+                        placeholder="Email"
+                    />
+                    <input
+                        name="wechat"
+                        type="text"
+                        ref={this.wechatRef}
+                        placeholder="Wechat"
+                    />
+                    <select name="role" ref={this.roleRef}>
+                        <option value="student">I am student</option>
+                        <option value="volunteer">I am volunteer</option>
+                    </select>
+                    <input
+                        name="password"
+                        type="password"
+                        ref={this.passRef}
+                        placeholder="Password"
+                    />
+                    <button type="submit">Sign Up</button>
+                    <button onClick={() => {this.props.history.push(`/`)}}>
+                        Log In
+                    </button>
+                </form>
+            </ReactCSSTransitionGroup>
         );
     }
 }

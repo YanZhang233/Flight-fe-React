@@ -80,16 +80,19 @@ class Student extends React.Component {
     };
 
     deleteRequest = () => {
-        axios.delete(`/flight/${this.state.requestInfo.request.id}`
-          )
-          .then(res => {
-              if(res.data.status === 0) {
-                this.setState({ requestInfo: null });
-                alert("Cancel your request success!");
-              } else {
-                alert(res.data.msg);
-              }
-          })
+        const cancel = window.confirm("Are you sure to cancel your request?");
+        if(cancel) {
+            axios.delete(`/flight/${this.state.requestInfo.request.id}`
+              )
+              .then(res => {
+                  if(res.data.status === 0) {
+                    this.setState({ requestInfo: null });
+                    alert("Cancel your request success!");
+                  } else {
+                    alert(res.data.msg);
+                  }
+              })
+        }
     };
 
     render() {
@@ -104,8 +107,8 @@ class Student extends React.Component {
             );
         }
         return (
-            <div className="inventory">
-                <h2>Waiting for pick-up</h2>
+            <div className="display-info">
+                <h2 className="info-title">Waiting for pick-up...😁</h2>
                 <AddRequest 
                     addRequest={this.addRequest}
                 />

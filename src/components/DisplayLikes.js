@@ -14,9 +14,9 @@ class DisplayLikes extends React.Component {
     render() {
 
         return (
-            <div className="inventory">
-                Likes List
-                <ul className="fishes">
+            <div className="display-info">
+                <p className="info-title">Likes List</p>
+                <ul>
                     {Object.keys(this.state.likes).map(key => (
                       <Like
                         key={key}

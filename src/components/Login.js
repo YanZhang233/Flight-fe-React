@@ -1,5 +1,6 @@
 import React from "react";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 class Login extends React.Component {
     emailRef = React.createRef();
@@ -16,25 +17,33 @@ class Login extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <h2>Log In</h2>
-                <input
-                    name="email"
-                    type="email"
-                    ref={this.emailRef}
-                    placeholder="Email"
-                />
-                <input
-                    name="password"
-                    type="password"
-                    ref={this.passRef}
-                    placeholder="Password"
-                />
-                <button type="submit">Log In</button>
-                <button onClick={() => {this.props.history.push(`/register`)}}>
-                    Sign Up
-                </button> 
-            </form>
+            <ReactCSSTransitionGroup
+                transitionName="AppearTransition"
+                transitionAppear={ true }
+                transitionAppearTimeout={ 1000 }
+                transitionEnter={ false }
+                transitionLeave={ false }
+            >
+                <form className="entry" onSubmit={this.handleSubmit}>
+                    <h2 className="entry-title">Log In</h2>
+                    <input
+                        name="email"
+                        type="email"
+                        ref={this.emailRef}
+                        placeholder="Email"
+                    />
+                    <input
+                        name="password"
+                        type="password"
+                        ref={this.passRef}
+                        placeholder="Password"
+                    />
+                    <button type="submit">Log In</button>
+                    <button onClick={() => {this.props.history.push(`/register`)}}>
+                        Sign Up
+                    </button> 
+                </form>
+            </ReactCSSTransitionGroup>
         );
     }
 }

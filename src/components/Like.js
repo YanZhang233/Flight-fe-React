@@ -9,9 +9,9 @@ class Like extends React.Component {
         } = this.props.likedUser;
         
         return (
-          <li className="menu-fish">
-            <p>{email}</p>
-            <p>{wechat}</p>
+          <li className="display-info">
+            <p>Email: {email}</p>
+            <p>Wechat: {wechat}</p>
           </li>
         );
     }
