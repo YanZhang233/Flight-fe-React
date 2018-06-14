@@ -42,6 +42,9 @@ class Login extends React.Component {
                     <button onClick={() => {this.props.history.push(`/register`)}}>
                         Sign Up
                     </button> 
+                    <button onClick={() => {this.props.history.push(`/intro`)}}>
+                        Back
+                    </button> 
                 </form>
             </ReactCSSTransitionGroup>
         );

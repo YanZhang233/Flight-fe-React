@@ -1,13 +1,19 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 class Intro extends React.Component {
 
     render() {
         
         return (
-          <p>This is Introduction.</p>
+            <div className="entry">
+              <p>This is Introduction.</p>
+              <button onClick={() => {this.props.history.push(`/`)}}>
+                  Go to Request!
+              </button> 
+            </div>
         );
     }
 }
 
-export default Intro;
+export default withRouter(Intro);

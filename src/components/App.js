@@ -2,11 +2,11 @@ import React from "react";
 import axios from "../base.js";
 import Qs from 'qs';
 import cookie from "react-cookies";
-import Intro from "./Intro";
 import Login from "./Login";
 import Student from "./Student";
 import Volunteer from "./Volunteer";
 import NotFound from "./NotFound";
+import { withRouter } from "react-router-dom";
 
 class App extends React.Component {
 
@@ -59,6 +59,7 @@ class App extends React.Component {
                 cookie.remove('flightGWU_pass', { path: '/' });
                 cookie.remove('JSESSIONID', { path: '/' });
                 alert("Log out success!");
+                this.props.history.push(`/intro`);
             } else {
                 alert(res.data.msg);
             }
@@ -72,7 +73,6 @@ class App extends React.Component {
         if(!this.state.uid) {
             return (
                 <div>
-                    <Intro />
                     <Login login={this.login} />
                 </div>
             );
@@ -103,4 +103,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default withRouter(App);

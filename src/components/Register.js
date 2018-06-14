@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "../base.js";
 import Qs from 'qs';
+import { withRouter } from "react-router-dom";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 class Register extends React.Component {
@@ -81,10 +82,13 @@ class Register extends React.Component {
                     <button onClick={() => {this.props.history.push(`/`)}}>
                         Log In
                     </button>
+                    <button onClick={() => {this.props.history.push(`/intro`)}}>
+                        Back
+                    </button> 
                 </form>
             </ReactCSSTransitionGroup>
         );
     }
 }
 
-export default Register;
+export default withRouter(Register);
