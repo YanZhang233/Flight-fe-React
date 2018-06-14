@@ -5,6 +5,11 @@ import { withRouter } from "react-router-dom";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 class Register extends React.Component {
+
+    state = {
+        student: true
+    }
+
     emailRef = React.createRef();
     wechatRef = React.createRef();
     roleRef = React.createRef();
@@ -15,6 +20,11 @@ class Register extends React.Component {
     homeTownRef = React.createRef();
     majorRef = React.createRef();
     actualNameRef = React.createRef();
+
+    handleChange = event => {
+        const ifStudent = !this.state.student
+        this.setState({ student: ifStudent });
+    };
 
     handleSubmit = event => {
         event.preventDefault();
@@ -86,6 +96,10 @@ class Register extends React.Component {
             >
                 <form className="entry" onSubmit={this.handleSubmit}>
                     <h2 className="entry-title">Sign Up</h2>
+                    <select name="role" ref={this.roleRef} onChange={this.handleChange} defaultValue="student">
+                        <option value="student">I am student</option>
+                        <option value="volunteer">I am volunteer</option>
+                    </select>
                     <input
                         name="email"
                         type="email"
@@ -98,38 +112,40 @@ class Register extends React.Component {
                         ref={this.wechatRef}
                         placeholder="Wechat*"
                     />
-                    <select name="role" ref={this.roleRef}>
-                        <option value="student">I am student</option>
-                        <option value="volunteer">I am volunteer</option>
-                    </select>
-                    <input
-                        name="graduatedFrom"
-                        type="text"
-                        ref={this.graduatedFromRef}
-                        placeholder="Graduated From"
-                    />
-                    <select name="gender" ref={this.genderRef}>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                    <input
-                        name="homeTown"
-                        type="text"
-                        ref={this.homeTownRef}
-                        placeholder="Hometown"
-                    />
-                    <input
-                        name="major"
-                        type="text"
-                        ref={this.majorRef}
-                        placeholder="Major"
-                    />
-                    <input
-                        name="actualName"
-                        type="text"
-                        ref={this.actualNameRef}
-                        placeholder="Actual Name"
-                    />
+                    {this.state.student? 
+                        <div>
+                        <input
+                            name="graduatedFrom"
+                            type="text"
+                            ref={this.graduatedFromRef}
+                            placeholder="Graduated From"
+                        />
+                        <select name="gender" ref={this.genderRef}>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <input
+                            name="homeTown"
+                            type="text"
+                            ref={this.homeTownRef}
+                            placeholder="Hometown"
+                        />
+                        <input
+                            name="major"
+                            type="text"
+                            ref={this.majorRef}
+                            placeholder="Major"
+                        />
+                        <input
+                            name="actualName"
+                            type="text"
+                            ref={this.actualNameRef}
+                            placeholder="Actual Name"
+                        />
+                        </div>
+                        :
+                        ""
+                    }
                     <input
                         name="password"
                         type="password"
