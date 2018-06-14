@@ -6,7 +6,7 @@ import Qs from 'qs';
 class StudentInfo extends React.Component {
 
     state = {
-      studentInfo: null
+      studentInfo: null,
     }
 
     componentWillMount() {
@@ -47,8 +47,8 @@ class StudentInfo extends React.Component {
         .then(res => {
             console.log(res.data);
             if(res.data.status === 0) {
-                this.getStudentInfo(this.props.studentId);
-                alert("Update your request success!");
+                this.setState({ studentInfo: res.data.data });
+                alert("Update your information success!");
             } else {
                 alert(res.data.msg);
             }
