@@ -34,13 +34,12 @@ class Register extends React.Component {
         const role = this.roleRef.value.value;
         const password = this.passRef.value.value;
 
-        const graduatedFrom = this.graduatedFromRef.value.value;
-        const gender = this.genderRef.value.value;
-        const homeTown = this.homeTownRef.value.value;
-        const major = this.majorRef.value.value;
-        const actualName = this.actualNameRef.value.value;
-
         if(role === `student`) {
+            const graduatedFrom = this.graduatedFromRef.value.value;
+            const gender = this.genderRef.value.value === "Male"? 1 : 0;
+            const homeTown = this.homeTownRef.value.value;
+            const major = this.majorRef.value.value;
+            const actualName = this.actualNameRef.value.value;
             axios.post(`/user/new`, 
                     Qs.stringify({ 
                         email, 
@@ -67,11 +66,6 @@ class Register extends React.Component {
                         email, 
                         wechat, 
                         password, 
-                        graduatedFrom, 
-                        gender,
-                        homeTown,
-                        major, 
-                        actualName
                     }),
                 )
                 .then(res => {

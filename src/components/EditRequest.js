@@ -27,6 +27,7 @@ class EditRequest extends React.Component {
 
         if(this.state.defaultRequest) {
             return (
+              <div className="edit-content-container">
               <div className="display-info">
                 <h2 className="info-title">Edit your request...</h2>
                 <p>Airport:</p>
@@ -76,9 +77,10 @@ class EditRequest extends React.Component {
                   <option value="3">3</option>
                   <option value="4">4</option>
                 </select>
-                <button onClick={this.handleUpdate}>Save Request</button>
-                <button onClick={() => this.props.deleteRequest()}>Cancel Request</button>
-                <button onClick={this.props.editSwitch}>Back</button>
+                <button className="formbutton" onClick={this.handleUpdate}>Save Request</button>
+                <button className="formbutton" onClick={() => this.props.deleteRequest()}>Cancel Request</button>
+                <button className="formbutton" onClick={this.props.editSwitch}>Back</button>
+              </div>
               </div>
             );
         }

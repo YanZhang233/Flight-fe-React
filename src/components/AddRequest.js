@@ -32,6 +32,7 @@ class AddRequest extends React.Component {
 
     render() {
         return (
+          <div className="edit-content-container">
           <form className="display-info" onSubmit={this.createRequest}>
             <p>Airport:</p>
             <select name="airport" ref={this.airportRef}>
@@ -80,8 +81,9 @@ class AddRequest extends React.Component {
               <option value="3">3</option>
               <option value="4">4</option>
             </select>
-            <button type="submit">+ Add Request</button>
+            <button className="formButton" type="submit">+ Add Request</button>
           </form>
+          </div>
         );
     }
 }

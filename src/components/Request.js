@@ -1,5 +1,8 @@
 import React from "react";
 import axios from "../base.js";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import { faCar, faArrowsAltH, faFighterJet, faCalendarAlt, faUsers, faSuitcase, faThumbsUp, faThumbsDown } from "@fortawesome/fontawesome-free-solid";
+
 
 class Request extends React.Component {
 
@@ -47,24 +50,44 @@ class Request extends React.Component {
 
         return (
           <li className="display-info">
-            <p>Airport: {airport}</p>
-            <p>Destination: {destination}</p>
-            <p>Time: {time}</p>
-            <p>FlightInfo: {flightInfo}</p>
-            <p>Description: {description}</p>
-            <p>Number Of People: {numOfPeople}</p>
-            <p>Baggage: {baggage}</p>
-            <p>There are {like} people want to pick him/her up.</p>
-            <button 
-                onClick={() => this.props.checkStudent(requestUserId)}
-            >
-                Check the Information of the student
-            </button>
-            <button 
-                onClick={this.handleClick}
-            >
-                {this.state.haveInterest ? "Cancel Interest" : "I Have Interest"}
-            </button>
+          <div className="display-content-container">
+                <button 
+                    onClick={() => this.props.checkStudent(requestUserId)}
+                >
+                    Check the Information of the student
+                </button>
+                <p>
+                     <span className="info">
+                        <FontAwesomeIcon icon={faCar} /> {airport} 
+                        <FontAwesomeIcon icon={faArrowsAltH} /> {destination} 
+                     </span> 
+                     <span className="info">
+                        <FontAwesomeIcon icon={faCalendarAlt} /> {time}
+                     </span> 
+                     <span className="info"> 
+                        <FontAwesomeIcon icon={faFighterJet} /> {flightInfo}
+                     </span> 
+                     <span className="info">
+                        <FontAwesomeIcon icon={faUsers} /> {numOfPeople} People 
+                     </span> 
+                     <span className="info">
+                        <FontAwesomeIcon icon={faSuitcase} /> {baggage} Baggages
+                     </span> 
+                </p>
+                <p>{description}</p>
+                <p>
+                    <button className="likeButton"
+                        onClick={this.handleClick}
+                    >
+                        {this.state.haveInterest ? 
+                            <FontAwesomeIcon icon={faThumbsUp} /> 
+                            : 
+                            <FontAwesomeIcon icon={faThumbsDown} /> 
+                        }
+                    </button>
+                    <span> {like} people want to pick him/her up.</span>
+                </p>
+            </div>
           </li>
         );
     }

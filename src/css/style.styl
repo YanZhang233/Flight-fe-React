@@ -121,7 +121,7 @@ button, input[type=submit]
       background green
 
 .bg
-  background url("/images/bg.jpg")
+  background url('/images/bg.jpg')
   background-attachment fixed
   background-position center
   background-size cover
@@ -166,12 +166,18 @@ button
   letter-spacing 1px
   background-color #3E588F
   color white
+  border-radius 5px
+  font-family 'Open Sans' , sans-serif
 
 button hover 
   transition background-color 0.5s ease
   background-color white
   color #3E588F
 
+.formbutton
+  width 50%
+  left 20%
+  margin 5px 
 
 .AppearTransition-appear 
   opacity 0.01
@@ -184,7 +190,7 @@ button hover
 
 
 .display-info 
-  max-width 500px
+  max-width 70%
   margin 50px auto
   padding 2rem
 
@@ -201,7 +207,7 @@ button hover
 li 
   list-style-type none
 
-p 
+p
   width 100%
   margin 0
   padding 5px 10px
@@ -212,6 +218,8 @@ p
   letter-spacing 1px
   margin-bottom 5px
   color #3E588F
+input, textarea, select
+  border-bottom 1px solid #3e588f
 
 .likeNum 
   width 100%
@@ -235,4 +243,34 @@ p
   background 0
   color #3e588f
 
+.display-content-container
+  background-color white
+  margin-bottom 30px
+  border-top 60px solid #3e588f
+  border-bottom 30px solid #3e588f
+  opacity 0.9
+
+.edit-content-container
+  opacity 0.7
+  width 80%
+  background-color white
+  margin 50px auto
+  border 2px solid #3e588f
+  border-radius 15px
+
+.info
+  margin-right 20px
+.likeButton
+  background #3e588f
+  width 5%
+  border 0
+  decoration none
+.displayRow
+  border-bottom 1px solid #C0C5CD
+  padding-bottom .25rem
+  margin-bottom 1rem
+  font-style italic
+  font-size 2rem
+.right
+  left 50%
 

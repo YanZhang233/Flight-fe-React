@@ -409,12 +409,19 @@ button {
   letter-spacing: 1px;
   background-color: #3e588f;
   color: #fff;
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
 }
 button hover {
   -webkit-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
   background-color: #fff;
   color: #3e588f;
+}
+.formbutton {
+  width: 50%;
+  left: 20%;
+  margin: 5px;
 }
 .AppearTransition-appear {
   opacity: 0.01;
@@ -429,7 +436,7 @@ button hover {
   transition: all 1s ease-out;
 }
 .display-info {
-  max-width: 500px;
+  max-width: 70%;
   margin: 50px auto;
   padding: 2rem;
 }
@@ -458,6 +465,11 @@ p {
   margin-bottom: 5px;
   color: #3e588f;
 }
+input,
+textarea,
+select {
+  border-bottom: 1px solid #3e588f;
+}
 .likeNum {
   width: 100%;
   font-size: 16px;
@@ -479,4 +491,38 @@ p {
   letter-spacing: 1px;
   background: 0;
   color: #3e588f;
+}
+.display-content-container {
+  background-color: #fff;
+  margin-bottom: 30px;
+  border-top: 60px solid #3e588f;
+  border-bottom: 30px solid #3e588f;
+  opacity: 0.9;
+}
+.edit-content-container {
+  opacity: 0.7;
+  width: 80%;
+  background-color: #fff;
+  margin: 50px auto;
+  border: 2px solid #3e588f;
+  border-radius: 15px;
+}
+.info {
+  margin-right: 20px;
+}
+.likeButton {
+  background: #3e588f;
+  width: 5%;
+  border: 0;
+  decoration: none;
+}
+.displayRow {
+  border-bottom: 1px solid #c0c5cd;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  font-size: 2rem;
+}
+.right {
+  left: 50%;
 }
