@@ -153,10 +153,10 @@ class Register extends React.Component {
                         placeholder="Password*"
                     />
                     <button type="submit">Sign Up</button>
-                    <button onClick={() => {this.props.history.push(`/flight`)}}>
+                    <button onClick={() => {this.props.history.push(`/`)}}>
                         Log In
                     </button>
-                    <button onClick={() => {this.props.history.push(`/`)}}>
+                    <button onClick={() => {this.props.history.push(`/intro`)}}>
                         Back
                     </button> 
                 </form>

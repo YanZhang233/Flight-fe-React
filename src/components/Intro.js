@@ -16,7 +16,7 @@ class Intro extends React.Component {
           >
             <div className="entry">
               <p>This is Introduction.</p>
-              <button onClick={() => {this.props.history.push(`/flight`)}}>
+              <button onClick={() => {this.props.history.push(`/`)}}>
                   Go to Request!
               </button> 
             </div>

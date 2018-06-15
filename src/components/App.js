@@ -59,7 +59,7 @@ class App extends React.Component {
                 cookie.remove('flightGWU_pass', { path: '/' });
                 cookie.remove('JSESSIONID', { path: '/' });
                 alert("Log out success!");
-                this.props.history.push(`/`);
+                this.props.history.push(`/intro`);
             } else {
                 alert(res.data.msg);
             }

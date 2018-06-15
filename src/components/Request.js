@@ -58,7 +58,7 @@ class Request extends React.Component {
             <button 
                 onClick={() => this.props.checkStudent(requestUserId)}
             >
-                Check the Infomation of the student
+                Check the Information of the student
             </button>
             <button 
                 onClick={this.handleClick}
