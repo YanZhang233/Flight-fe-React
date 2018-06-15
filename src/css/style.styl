@@ -87,10 +87,6 @@ button, input[type=submit]
   position relative
   z-index 2
   &[disabled]
-    color red
-    background white
-    border-color red
-    transform rotate(-10deg) scale(2) translateX(50%) translateY(-50%)
     &:hover
       color red
       cursor not-allowed
@@ -222,7 +218,7 @@ input, textarea, select
   border-bottom 1px solid #3e588f
 
 .likeNum 
-  width 100%
+  width 70%
   font-size 16px
   text-transform uppercase
   font-weight 500
@@ -231,6 +227,7 @@ input, textarea, select
   letter-spacing 1px
   background 0
   color #3E588F
+  border 0
 
 .logout 
   width 10%
@@ -266,11 +263,14 @@ input, textarea, select
   border 0
   decoration none
 .displayRow
+  position relative
+  left 15%
+  width 70%
   border-bottom 1px solid #C0C5CD
   padding-bottom .25rem
   margin-bottom 1rem
   font-style italic
   font-size 2rem
 .right
-  left 50%
-
+  position absolute
+  right 5%
