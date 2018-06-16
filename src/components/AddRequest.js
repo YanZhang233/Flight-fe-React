@@ -105,9 +105,9 @@ class AddRequest extends React.Component {
                                   className="form-control"
                                   id="description"
                                   name="description"
-                                  id="time"
                                   ref={this.descriptionRef}
                                   type="text"
+                                  maxLength="40"
                               />
                           </div>
 

@@ -80,16 +80,7 @@ class EditRequest extends React.Component {
                                   />
                               </div>
 
-                              <div className="form-group">
-                                  <label htmlFor="description">Description</label>
-                                  <input
-                                      className="form-control"
-                                      id="description"
-                                      name="description"
-                                      onChange={this.handleChange}
-                                      value={this.state.defaultRequest.description}
-                                  />
-                              </div>
+
 
                               <div className="form-group">
                                   <label htmlFor="airport">Number Of People</label>
@@ -109,6 +100,17 @@ class EditRequest extends React.Component {
                                       <option value="3">3</option>
                                       <option value="4">4</option>
                                   </select>
+                              </div>
+                              <div className="form-group">
+                                  <label htmlFor="description">Description</label>
+                                  <input
+                                      className="form-control"
+                                      id="description"
+                                      name="description"
+                                      onChange={this.handleChange}
+                                      value={this.state.defaultRequest.description}
+                                      maxLength="40"
+                                  />
                               </div>
                               <button className="btn btn-primary btn-block" type="submit" >Save Request</button>
                               <button className="btn btn-primary btn-block" onClick={() => this.props.deleteRequest()}>Cancel Request</button>
