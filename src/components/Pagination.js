@@ -38,7 +38,7 @@ class Pagination extends React.Component {
                     onClick={() => this.handleClick(currentPage - 1)}
                   >
                     <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
+                    <span className="sr-only">Previous</span>
                   </a>
                 </li>
                 {previous >= 0?

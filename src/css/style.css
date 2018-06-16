@@ -191,10 +191,13 @@ select {
 #infoAvatar {
   width: 200px;
   height: 200px;
-  margin: 0 auto 80px auto;
+  margin: 0 auto 10px auto;
+}
+#thumContainer {
+  height: 220px;
 }
 #avatarChange {
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .well {
   margin: 0 auto;
@@ -217,4 +220,15 @@ select {
 }
 #input-avatar {
   display: none;
+}
+.showRequests {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+#display-header-icon {
+  margin-left: 10px;
+  margin-top: 7px;
 }

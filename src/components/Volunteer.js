@@ -26,7 +26,8 @@ class Volunteer extends React.Component {
     }
 
     getRequests = (pageIndex) => {
-        axios.get(`/flight/?pageIndex=${pageIndex}&pageSize=2`
+        pageIndex = typeof pageIndex != "undefined" ? pageIndex : this.state.currentPage;
+        axios.get(`/flight/?pageIndex=${pageIndex}`
         )
         .then(res => {
             console.log(res.data);
@@ -45,6 +46,7 @@ class Volunteer extends React.Component {
         .then(res => {
             if(res.data.status === 0) {
                 this.getRequests();
+                alert("Your interest has been sent to the new student!");
             } else {
                 alert(res.data.msg);
             }
@@ -80,7 +82,7 @@ class Volunteer extends React.Component {
             return (
                 <React.Fragment>
                     <div className="container">
-                        <div className="row">
+                        <div className="row showRequests" >
                             {Object.keys(this.state.requests).map(key => (
                                 <Request
                                     key={key}
@@ -91,15 +93,18 @@ class Volunteer extends React.Component {
                                 />
                             ))}
                         </div>
-                        {this.state.totalPages === 1?
-                            ""
-                            :
-                            <Pagination 
-                                currentPage={this.state.currentPage}
-                                totalPages={this.state.totalPages}
-                                handlePagination={this.handlePagination}
-                            />
-                        }
+                        <div className="row paginationContainer">
+                            {this.state.totalPages === 1?
+                                ""
+                                :
+                                <Pagination
+                                    currentPage={this.state.currentPage}
+                                    totalPages={this.state.totalPages}
+                                    handlePagination={this.handlePagination}
+                                />
+                            }
+                        </div>
+
                     </div>
                 </React.Fragment>
             );

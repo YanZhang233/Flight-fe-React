@@ -59,8 +59,9 @@ class Request extends React.Component {
 
 
 
-                        <div className="col-xs-12 col-sm-6 col-md-4">
+                        <div className="col-xs-12 col-md-6 col-lg-4">
                             <div className="display-header">
+                                <i className="fas fa-circle" id="display-header-icon"></i>
                             </div>
                             <div className="display-content-container" >
 

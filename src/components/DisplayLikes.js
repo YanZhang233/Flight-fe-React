@@ -14,7 +14,7 @@ class DisplayLikes extends React.Component {
     render() {
 
         return (
-            <div className="container">
+            <div className="edit-content-container">
                 <div className="row">
                     <p className="info-title">Contact List</p>
                     <ul class="list-group">
@@ -25,7 +25,7 @@ class DisplayLikes extends React.Component {
                             />
                         ))}
 
-                        <button className="btn btn-info btn-block" onClick={this.props.likeSwitch}>Back</button>
+                        <button className="btn btn-primary btn-block" onClick={this.props.likeSwitch}>Back</button>
                     </ul>
 
                 </div>

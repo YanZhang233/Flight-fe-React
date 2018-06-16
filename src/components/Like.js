@@ -9,7 +9,7 @@ class Like extends React.Component {
         } = this.props.likedUser;
         
         return (
-          <li class="list-group-item">
+          <li className="list-group-item">
             <p>Email: {email}</p>
             <span>Wechat: {wechat}</span>
           </li>
