@@ -45,50 +45,96 @@ class Request extends React.Component {
             description,
             numOfPeople,
             baggage,
-            like
+            like,
+            avatar,
+            gender,
+            homeTown,
+            graduatedFrom
         } = this.props.details;
 
+
         return (
-          <li className="display-info">
-          <div className="display-content-container">
-                <button 
-                    onClick={() => this.props.checkStudent(requestUserId)}
-                >
-                    Check the Information of the student
-                </button>
-                <p>
-                     <span className="info">
-                        <FontAwesomeIcon icon={faCar} /> {airport} 
-                        <FontAwesomeIcon icon={faArrowsAltH} /> {destination} 
-                     </span> 
-                     <span className="info">
-                        <FontAwesomeIcon icon={faCalendarAlt} /> {time}
-                     </span> 
-                     <span className="info"> 
-                        <FontAwesomeIcon icon={faFighterJet} /> {flightInfo}
-                     </span> 
-                     <span className="info">
-                        <FontAwesomeIcon icon={faUsers} /> {numOfPeople} People 
-                     </span> 
-                     <span className="info">
-                        <FontAwesomeIcon icon={faSuitcase} /> {baggage} Baggages
-                     </span> 
-                </p>
-                <p>{description}</p>
-                <p>
-                    <button className="likeButton"
-                        onClick={this.handleClick}
-                    >
-                        {this.state.haveInterest ? 
-                            <FontAwesomeIcon icon={faThumbsUp} /> 
-                            : 
-                            <FontAwesomeIcon icon={faThumbsDown} /> 
-                        }
-                    </button>
-                    <span> {like} people want to pick him/her up.</span>
-                </p>
-            </div>
-          </li>
+
+                <React.Fragment>
+
+
+
+                        <div className="col-xs-12 col-md-6" id="text-center">
+                            <div className="display-header">
+                            </div>
+                            <div className="display-content-container" >
+
+                                <div className="row infoLine" id="avatarLine">
+                                    <a className="thumbnail"
+                                       onClick={() => this.props.checkStudent(requestUserId)}
+                                    >
+                                        <img src={avatar} />
+                                    </a>
+
+                                    <div className="person">
+                                        {
+                                            {gender}===0?
+                                                <p>gender : <i className="fas fa-mars"></i> </p>
+                                                :
+                                                <p> gender : <i className="fas fa-venus"></i></p>
+                                        }
+                                        <p>From : {homeTown}</p>
+                                        <p>School : {graduatedFrom}</p>
+                                    </div>
+
+                                </div>
+
+                                <div className="row infoLine" >
+                             <span className="info">
+                                <FontAwesomeIcon icon={faCar} />  {airport}
+                                  <FontAwesomeIcon icon={faArrowsAltH} />  {destination}
+                             </span>
+
+                                </div>
+
+
+                                <div className="row infoLine" >
+                            <span className="info">
+                                <FontAwesomeIcon icon={faCalendarAlt} />  {time}
+                             </span>
+                                </div>
+
+                                <div className="row infoLine" >
+                           <span className="info">
+                                <i className="fas fa-plane"></i>  {flightInfo}
+                            </span>
+                                </div>
+
+                                <div className="row infoLine">
+                             <span className="info">
+                                <FontAwesomeIcon icon={faUsers} />  {numOfPeople} People
+                             </span>
+                                    <span className="info">
+                                <FontAwesomeIcon icon={faSuitcase} />  {baggage} Baggage(s)
+                             </span>
+                                </div>
+                                <p className="description">{description}</p>
+
+                                {this.state.haveInterest ?
+                                    <button className="btn btn-danger helpButton" onClick={this.handleClick}>Cancel help</button>
+                                    :
+                                    <button className="btn btn-success helpButton" onClick={this.handleClick}>Give a
+                                        help</button>
+                                }
+                                <p className="description">
+                                    {this.state.haveInterest ?
+                                        <i className="fas fa-thumbs-up "></i>
+                                        :
+                                        <i className="far fa-thumbs-up "></i>
+
+                                    }
+                                    <span> {like} people want to help {gender===0? "her" : "him"}</span>
+                                </p>
+                            </div>
+                        </div>
+
+                </React.Fragment>
+
         );
     }
 }

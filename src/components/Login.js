@@ -24,28 +24,47 @@ class Login extends React.Component {
                 transitionEnter={ false }
                 transitionLeave={ false }
             >
-                <form className="entry" onSubmit={this.handleSubmit}>
-                    <h2 className="entry-title">Log In</h2>
-                    <input
-                        name="email"
-                        type="email"
-                        ref={this.emailRef}
-                        placeholder="Email"
-                    />
-                    <input
-                        name="password"
-                        type="password"
-                        ref={this.passRef}
-                        placeholder="Password"
-                    />
-                    <button type="submit">Log In</button>
-                    <button onClick={() => {this.props.history.push(`/register`)}}>
-                        Sign Up
-                    </button> 
-                    <button onClick={() => {this.props.history.push(`/intro`)}}>
-                        Back
-                    </button> 
-                </form>
+
+                <div className="container">
+                    <div className="formDiv">
+                        <h3 className="formHeader">LogIn</h3>
+                        <form  onSubmit={this.handleSubmit}>
+                            <div className="form-group">
+                                <input className="form-control"
+                                    name="email"
+                                    type="email"
+                                    ref={this.emailRef}
+                                    placeholder="Email"
+                                />
+                            </div>
+
+                            <div className="form-group">
+                                <input
+                                    className="form-control"
+                                    name="password"
+                                    type="password"
+                                    ref={this.passRef}
+                                    placeholder="Password"
+                                />
+                            </div>
+
+                            <button className="btn btn-primary btn-block" type="submit">Log In</button>
+
+                            <button  className="btn btn-primary btn-block" onClick={() => {this.props.history.push(`/register`)}}>
+                                Sign Up
+                            </button>
+                            <button className="btn btn-primary btn-block" onClick={() => {this.props.history.push(`/intro`)}}>
+                                Back
+                            </button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+
+
             </ReactCSSTransitionGroup>
         );
     }

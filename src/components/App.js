@@ -67,34 +67,96 @@ class App extends React.Component {
     };
 
     render() {
-        const logout = <button className="logout" onClick={this.logout}>Log Out</button>;
+
         
         //if the user has not logged in
         if(!this.state.uid) {
             return (
-                <div>
-                    <Login login={this.login} />
-                </div>
+                <React.Fragment>
+                    <nav className="navbar navbar-default fixed-top ">
+                        <div className="container-fluid">
+                            <div className="navbar-header">
+                                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"
+                                        data-target="#collapsebar" aria-expanded="false">
+                                    <span className="sr-only">Toggle navigation</span>
+                                    <span className="icon-bar"></span>
+                                    <span className="icon-bar"></span>
+                                </button>
+                                <a className="navbar-brand" href="/">Flight <i className="fas fa-plane"></i></a>
+
+                            </div>
+                            <div className="collapse navbar-collapse" id="collapsebar">
+                                <ul className="nav navbar-nav navbar-right">
+                                    <li><a href="/" >Login <i className="fas fa-sign-in-alt"></i></a></li>
+                                    <li><a href="/register">Signup <i className="fas fa-user-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <Login login={this.login}/>
+
+                </React.Fragment>
+
             );
         } else {
             //if the user is a student
             if(this.state.role === 0) {
                 return (
-                    <div>
-                        {logout}
+                    <React.Fragment>
+                        <nav className="navbar navbar-default fixed-top ">
+                            <div className="container-fluid">
+                                <div className="navbar-header">
+                                    <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#collapsebar" aria-expanded="false">
+                                        <span className="sr-only">Toggle navigation</span>
+                                        <span className="icon-bar"></span>
+                                        <span className="icon-bar"></span>
+                                    </button>
+                                    <a className="navbar-brand" href="/">Flight <i className="fas fa-plane"></i></a>
+
+                                </div>
+                                <div className="collapse navbar-collapse" id="collapsebar">
+                                    <ul className="nav navbar-nav navbar-right">
+                                        <li><a href="#" >PersonalInfo <i className="fas fa-user"></i></a></li>
+                                        <li><a href="#" onClick={this.logout}>Logout <i className="fas fa-sign-out-alt"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
                         <Student 
                             studentId = {this.state.uid}
                         />
-                    </div>
+                    </React.Fragment>
                 );
             } else if(this.state.role === 2) {
                 return (
-                    <div>
-                        {logout}
+                    <React.Fragment>
+                        <nav className="navbar navbar-default fixed-top ">
+                            <div className="container-fluid">
+                                <div className="navbar-header">
+                                    <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#collapsebar" aria-expanded="false">
+                                        <span className="sr-only">Toggle navigation</span>
+                                        <span className="icon-bar"></span>
+                                        <span className="icon-bar"></span>
+                                    </button>
+                                    <a className="navbar-brand" href="/">Flight <i className="fas fa-plane"></i></a>
+
+                                </div>
+                                <div className="collapse navbar-collapse" id="collapsebar">
+                                    <ul className="nav navbar-nav navbar-right">
+                                        <li><a href="#" >PersonalInfo <i className="fas fa-user"></i></a></li>
+                                        <li><a href="#" onClick={this.logout}>Logout <i className="fas fa-sign-out-alt"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+
                         <Volunteer 
                             volunteerId = {this.state.uid}
                         />
-                    </div>
+                    </React.Fragment>
                 );
             } else {
                 return <NotFound />;

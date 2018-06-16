@@ -2,27 +2,39 @@ import React from "react";
 import axios from "../base.js";
 import StudentInRequest from "./StudentInRequest";
 import Request from "./Request";
+import Pagination from "./Pagination";
 
 class Volunteer extends React.Component {
 
     state = {
         volId: null,
         requests: [],
-        requestStudentId: null
+        requestStudentId: null,
+        currentPage: 0,
+        totalPages: null
     }
 
     componentWillMount() {
         this.setState({ volId: this.props.volunteerId });
-        this.getRequests();
+        if(this.state.requests.length <= 0) {
+            this.getRequests(0);
+        }
     }
 
-    getRequests = () => {
-        axios.get(`/flight`
+    handlePagination = (pageIndex) => {
+        this.getRequests(pageIndex);
+    }
+
+    getRequests = (pageIndex) => {
+        pageIndex = pageIndex? pageIndex : this.state.currentPage;
+        axios.get(`/flight/?pageIndex=${pageIndex}&pageSize=2`
         )
         .then(res => {
             console.log(res.data);
             if(res.data.status === 0) {
                 this.setState({ requests: res.data.data.content });
+                this.setState({ currentPage: res.data.data.number });
+                this.setState({ totalPages: res.data.data.totalPages });
             }
             console.log(this.state.requests);
         })
@@ -33,7 +45,6 @@ class Volunteer extends React.Component {
         )
         .then(res => {
             if(res.data.status === 0) {
-                alert("Your interest has been sent to the student!");
                 this.getRequests();
             } else {
                 alert(res.data.msg);
@@ -46,7 +57,6 @@ class Volunteer extends React.Component {
           )
           .then(res => {
               if(res.data.status === 0) {
-                alert("Remove your interest success!");
                 this.getRequests();
               } else {
                 alert(res.data.msg);
@@ -59,6 +69,7 @@ class Volunteer extends React.Component {
     }
 
     render() {
+
         if(this.state.requestStudentId) {
             return (
                 <StudentInRequest 
@@ -68,20 +79,26 @@ class Volunteer extends React.Component {
             );
         } else {
             return (
-                <div className="display-info">
-                    <p className="info-title">They are waiting for pick-up...</p>
-                    <ul>
-                        {Object.keys(this.state.requests).map(key => (
-                          <Request
-                            key={key}
-                            details={this.state.requests[key]}
-                            sendInterest={this.sendInterest}
-                            removeInterest={this.removeInterest}
-                            checkStudent={this.checkStudent}
-                          />
-                        ))}
-                    </ul>
-                </div>
+                <React.Fragment>
+                    <div className="container">
+                        <div className="row">
+                            {Object.keys(this.state.requests).map(key => (
+                                <Request
+                                    key={key}
+                                    details={this.state.requests[key]}
+                                    sendInterest={this.sendInterest}
+                                    removeInterest={this.removeInterest}
+                                    checkStudent={this.checkStudent}
+                                />
+                            ))}
+                        </div>
+                        <Pagination 
+                            currentPage={this.state.currentPage}
+                            totalPages={this.state.totalPages}
+                            handlePagination={this.handlePagination}
+                        />
+                    </div>
+                </React.Fragment>
             );
         }
     }
