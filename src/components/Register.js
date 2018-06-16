@@ -38,7 +38,7 @@ class Register extends React.Component {
 
         if(role === `student`) {
             const graduatedFrom = this.graduatedFromRef.value.value;
-            const gender = this.genderRef.value.value === "Male"? 1 : 0;
+            const gender = this.genderRef.value.value;
             const homeTown = this.homeTownRef.value.value;
             const major = this.majorRef.value.value;
             const actualName = this.actualNameRef.value.value;
@@ -139,8 +139,8 @@ class Register extends React.Component {
 
                                         <div className="form-group">
                                             <select className="form-control" name="gender" ref={this.genderRef}>
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
+                                                <option value="1">Male</option>
+                                                <option value="0">Female</option>
                                             </select>
                                         </div>
 
