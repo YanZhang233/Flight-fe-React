@@ -56,7 +56,7 @@ class EditRequest extends React.Component {
                               </div>
 
                               <div className="form-group">
-                                  <label htmlFor="time">Time</label>
+                                  <label htmlFor="time">Arrival Time(e.g. 2018-08-08 EST)</label>
                                   <input
                                       className="form-control"
                                       id="time"
@@ -115,7 +115,7 @@ class EditRequest extends React.Component {
                               <button className="btn btn-primary btn-block" type="submit" >Save Request</button>
                               <button className="btn btn-primary btn-block" onClick={() => this.props.deleteRequest()}>Cancel Request</button>
                               <br/>
-                              <a onClick={this.props.editSwitch}>Back</a>
+                              <a className="back" onClick={this.props.editSwitch}>Back</a>
 
                           </form>
 

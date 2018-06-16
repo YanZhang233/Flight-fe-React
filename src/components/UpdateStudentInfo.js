@@ -165,7 +165,7 @@ class UpdateStudentInfo extends React.Component {
                                         <button className="btn btn-success" type="submit">Save Information</button>
                                         <br/>
                                         <br/>
-                                        <a onClick={this.props.infoSwitch}>Back</a>
+                                        <a className="back" onClick={this.props.infoSwitch}>Back</a>
 
                                     </form>
 

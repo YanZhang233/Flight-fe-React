@@ -57,7 +57,7 @@ class AddRequest extends React.Component {
                           </div>
 
                           <div className="form-group">
-                              <label htmlFor="time">Arrival Time</label>
+                              <label htmlFor="time">Arrival Time(e.g. 2018-08-08 EST)</label>
                               <input
                                   className="form-control"
                                   id="time"

@@ -164,6 +164,7 @@ select {
   width: 80px;
   maigin: 0;
   float: left;
+  cursor: pointer;
 }
 #avatarLine {
   margin: 0;
@@ -206,7 +207,7 @@ select {
   width: 60%;
   margin: 0 auto 80px auto;
 }
-#displayLike: hover {
+#displayLike:hover {
   text-decoration: none;
   cursor: pointer;
   background-color: #a8c1d7;
@@ -231,4 +232,8 @@ select {
 #display-header-icon {
   margin-left: 10px;
   margin-top: 7px;
+}
+.back:hover {
+  text-decoration: none;
+  cursor: pointer;
 }

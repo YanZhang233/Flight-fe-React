@@ -132,7 +132,7 @@ class Request extends React.Component {
                                         <i className="far fa-thumbs-up "></i>
 
                                     }
-                                    <span> {like} people want to help him/her</span>
+                                    <span> {like} people want to help {gender===0?"her":"him"}</span>
                                 </p>
                             </div>
                         </div>

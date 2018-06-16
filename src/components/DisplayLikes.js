@@ -17,7 +17,7 @@ class DisplayLikes extends React.Component {
             <div className="edit-content-container">
                 <div className="row">
                     <p className="info-title">Contact List</p>
-                    <ul class="list-group">
+                    <ul className="list-group">
                         {Object.keys(this.state.likes).map(key => (
                             <Like
                                 key={key}

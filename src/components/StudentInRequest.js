@@ -102,7 +102,7 @@ class StudentInRequest extends React.Component {
                                                 id="gender"
                                                 name="gender"
                                                 type="text"
-                                                value={gender}
+                                                value={gender===0?"Female":"Male"}
                                                 readOnly
                                             />
                                         </div>

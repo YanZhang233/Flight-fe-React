@@ -194,7 +194,7 @@ class Register extends React.Component {
                                     Log In
                                 </button>
                                 <br/>
-                                <a onClick={() => {this.props.history.push(`/intro`)}}>
+                                <a className="back" onClick={() => {this.props.history.push(`/intro`)}}>
                                     Back
                                 </a>
                             </form>
