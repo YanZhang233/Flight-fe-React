@@ -15,6 +15,7 @@ class Pagination extends React.Component {
         var current = currentPage;
         var previous = current - 1;
         var next = current + 1;
+        
 
         if(current === 0) {
             previous = current;

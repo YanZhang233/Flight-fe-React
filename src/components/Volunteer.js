@@ -26,7 +26,6 @@ class Volunteer extends React.Component {
     }
 
     getRequests = (pageIndex) => {
-        pageIndex = pageIndex? pageIndex : this.state.currentPage;
         axios.get(`/flight/?pageIndex=${pageIndex}&pageSize=2`
         )
         .then(res => {
@@ -92,11 +91,15 @@ class Volunteer extends React.Component {
                                 />
                             ))}
                         </div>
-                        <Pagination 
-                            currentPage={this.state.currentPage}
-                            totalPages={this.state.totalPages}
-                            handlePagination={this.handlePagination}
-                        />
+                        {this.state.totalPages === 1?
+                            ""
+                            :
+                            <Pagination 
+                                currentPage={this.state.currentPage}
+                                totalPages={this.state.totalPages}
+                                handlePagination={this.handlePagination}
+                            />
+                        }
                     </div>
                 </React.Fragment>
             );
