@@ -28,60 +28,100 @@ class EditRequest extends React.Component {
         if(this.state.defaultRequest) {
             return (
               <div className="edit-content-container">
-              <div className="display-info">
-                <h2 className="info-title">Edit your request...</h2>
-                <p>Airport:</p>
-                <select name="airport" onChange={this.handleChange} value={this.state.defaultRequest.airport}>
-                  <option value="DCA">DCA</option>
-                  <option value="IAD">IAD</option>
-                  <option value="DUL">DUL</option>
-                </select>
-                <p>Destination:</p>
-                <input
-                  name="destination"
-                  type="text"
-                  onChange={this.handleChange}
-                  value={this.state.defaultRequest.destination}
-                />
-                <p>Time:</p>
-                <input
-                  name="time"
-                  type="text"
-                  onChange={this.handleChange}
-                  value={this.state.defaultRequest.time}
-                />
-                <p>Flight Information:</p>
-                <input
-                  name="flightInfo"
-                  type="text"
-                  onChange={this.handleChange}
-                  value={this.state.defaultRequest.flightInfo}
-                />
-                <p>Description:</p>
-                <textarea
-                  name="description" 
-                  onChange={this.handleChange}
-                  value={this.state.defaultRequest.description}
-                />
-                <p>Number Of People:</p>
-                <select name="numOfPeople" onChange={this.handleChange} value={this.state.defaultRequest.numOfPeople}>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
-                <p>Baggage:</p>
-                <select name="baggage" onChange={this.handleChange} value={this.state.defaultRequest.baggage}>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
-                <button className="formbutton" onClick={this.handleUpdate}>Save Request</button>
-                <button className="formbutton" onClick={() => this.props.deleteRequest()}>Cancel Request</button>
-                <button className="formbutton" onClick={this.props.editSwitch}>Back</button>
+                  <div className="row">
+                      <h2 className="info-title">Edit your request...</h2>
+                      <div className="formDivLong">
+
+                          <form onSubmit={this.handleUpdate}>
+
+                              <div className="form-group">
+                                  <label htmlFor="airport">Airport</label>
+                                  <select className="form-control" id="airport" name="airport" onChange={this.handleChange} value={this.state.defaultRequest.airport}>
+                                      <option value="DCA">DCA</option>
+                                      <option value="IAD">IAD</option>
+                                      <option value="DUL">DUL</option>
+                                  </select>
+                              </div>
+
+                              <div className="form-group">
+                                  <label htmlFor="destination">Destination</label>
+                                  <input
+                                      className="form-control"
+                                      id="destination"
+                                      name="destination"
+                                      type="text"
+                                      onChange={this.handleChange}
+                                      value={this.state.defaultRequest.destination}
+                                  />
+                              </div>
+
+                              <div className="form-group">
+                                  <label htmlFor="time">Time</label>
+                                  <input
+                                      className="form-control"
+                                      id="time"
+                                      name="time"
+                                      type="text"
+                                      onChange={this.handleChange}
+                                      value={this.state.defaultRequest.time}
+                                  />
+                              </div>
+
+
+                              <div className="form-group">
+                                  <label htmlFor="flightInfo">Flight Information</label>
+                                  <input
+                                      className="form-control"
+                                      id="flightInfo"
+                                      name="flightInfo"
+                                      type="text"
+                                      onChange={this.handleChange}
+                                      value={this.state.defaultRequest.flightInfo}
+                                  />
+                              </div>
+
+                              <div className="form-group">
+                                  <label htmlFor="description">Description</label>
+                                  <input
+                                      className="form-control"
+                                      id="description"
+                                      name="description"
+                                      onChange={this.handleChange}
+                                      value={this.state.defaultRequest.description}
+                                  />
+                              </div>
+
+                              <div className="form-group">
+                                  <label htmlFor="airport">Number Of People</label>
+                                  <select  id="airport" className="form-control" name="numOfPeople" onChange={this.handleChange} value={this.state.defaultRequest.numOfPeople}>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                  </select>
+                              </div>
+
+                              <div className="form-group">
+                                  <label htmlFor="baggage">Baggage</label>
+                                  <select  id="baggage" className="form-control" name="baggage" onChange={this.handleChange} value={this.state.defaultRequest.baggage}>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                  </select>
+                              </div>
+                              <button className="btn btn-primary btn-block" type="submit" >Save Request</button>
+                              <button className="btn btn-primary btn-block" onClick={() => this.props.deleteRequest()}>Cancel Request</button>
+                              <br/>
+                              <a onClick={this.props.editSwitch}>Back</a>
+
+                          </form>
+
+                      </div>
+                  </div>
+
               </div>
-              </div>
+
             );
         }
     }

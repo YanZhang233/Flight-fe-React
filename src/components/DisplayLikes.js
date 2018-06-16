@@ -14,17 +14,23 @@ class DisplayLikes extends React.Component {
     render() {
 
         return (
-            <div className="display-info">
-                <p className="info-title">Likes List</p>
-                <ul>
-                    {Object.keys(this.state.likes).map(key => (
-                      <Like
-                        key={key}
-                        likedUser={this.state.likes[key]}
-                      />
-                    ))}
-                </ul>
-                <button onClick={this.props.likeSwitch}>Back</button>
+            <div className="container">
+                <div className="row">
+                    <p className="info-title">Contact List</p>
+                    <ul class="list-group">
+                        {Object.keys(this.state.likes).map(key => (
+                            <Like
+                                key={key}
+                                likedUser={this.state.likes[key]}
+                            />
+                        ))}
+
+                        <button className="btn btn-info btn-block" onClick={this.props.likeSwitch}>Back</button>
+                    </ul>
+
+                </div>
+
+
             </div>
         );
     }

@@ -1,6 +1,6 @@
 import React from "react";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import { faUsers } from "@fortawesome/fontawesome-free-solid";
+import { faFighterJet } from "@fortawesome/fontawesome-free-solid";
 
 class DisplayRequest extends React.Component {
 
@@ -19,45 +19,24 @@ class DisplayRequest extends React.Component {
         const noLike = like === 0; 
 
         return (
-          <div className="edit-content-container">
-          <li className="display-info">
-            <p className="info-title">Waiting for pick-up...😁</p>
-                <p className="displayRow">
-                    Airport
-                    <span className="right">{airport}</span>
-                </p>
-                <p className="displayRow">
-                    Destination
-                    <span className="right">{destination}</span>
-                </p>
-                <p className="displayRow">
-                    Time
-                    <span className="right">{time}</span>
-                </p>
-                <p className="displayRow">
-                    Flight Information
-                    <span className="right">{flightInfo}</span>
-                </p>
-                <p className="displayRow">
-                    Number Of People
-                    <span className="right">{numOfPeople}</span>
-                </p>
-                <p className="displayRow">
-                    Baggage
-                    <span className="right">{baggage}</span>
-                </p>
-                <p className="displayRow">
-                    {description}
-                </p>
-                <button className="likeNum"
-                    disabled={noLike}
-                    onClick={this.props.likeSwitch}
-                >
-                    <FontAwesomeIcon icon={faUsers} /> {noLike ? "No one wants to pick you up :)" : "There are " + like + " people want to pick you up."}
-                </button>
-            <button onClick={this.props.editSwitch}>Edit</button>
-          </li>
-          </div>
+            <div className="edit-content-container">
+                <div className="row">
+                    <p className="info-title">Waiting for pick-up...😁</p>
+                    <ul className="list-group">
+                        <li className="list-group-item"> Airport: {airport}</li>
+                        <li className="list-group-item">Destination: {destination}</li>
+                        <li className="list-group-item">Time: {time}</li>
+                        <li className="list-group-item">Flight Information: {flightInfo}</li>
+                        <li className="list-group-item">Baggage: {baggage}</li>
+                        <li className="list-group-item">Description: {description}</li>
+                        <li className="list-group-item"  id="displayLike" onClick={this.props.likeSwitch}>People want to help  <span className="badge">{like}</span></li>
+                        <button className="btn btn-primary btn-block" onClick={this.props.editSwitch}>Edit</button>
+
+                    </ul>
+
+                </div>
+            </div>
+
         );
     }
 }

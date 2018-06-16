@@ -33,21 +33,131 @@ class StudentInRequest extends React.Component {
               gender, 
               graduatedFrom, 
               homeTown, 
-              major
+              major,
+                avatar
             } = this.state.studentInfo;
 
             return (
-              <li className="display-info">
-                <p className="info-title">This student is waiting for pick-up...</p>
-                <p>Email: {email}</p>
-                <p>Wechat: {wechat}</p>
-                <p>Actual Name: {actualName}</p>
-                <p>Gender: {gender}</p>
-                <p>Graduated From: {graduatedFrom}</p>
-                <p>Hometown: {homeTown}</p>
-                <p>Major: {major}</p>
-                <button onClick={() => this.props.checkStudent(null)}>Back</button>
-              </li>
+                <React.Fragment>
+
+                    <div className="container">
+
+                        <div className="row">
+
+
+                            <div className="col-xs-12 col-md-3">
+                                <div className="thumbnail" id="infoAvatar" >
+                                    <img  className="img-responsive" src={avatar} />
+                                    <br/>
+                                    <div className="caption-full">
+                                        <h4>{email}</h4>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div className="col-xs-12 col-md-9">
+                                <div className="well">
+                                    <form onSubmit={this.handleUpdate}>
+                                        <div className="form-group">
+                                            <label htmlFor="actualName">Name</label>
+                                            <input
+                                                className="form-control"
+                                                id="actualName"
+                                                name="actualName"
+                                                type="text"
+                                                value={actualName}
+                                                readOnly
+                                            />
+                                        </div>
+
+                                        <div className="form-group">
+                                            <label htmlFor="email">Email</label>
+                                            <input
+                                                className="form-control"
+                                                id="email"
+                                                name="email"
+                                                type="email"
+                                                readOnly
+                                                value={email}
+                                            />
+                                        </div>
+
+                                        <div className="form-group">
+                                            <label htmlFor="wechat">Wechat</label>
+                                            <input
+                                                className="form-control"
+                                                id="wechat"
+                                                name="wechat"
+                                                type="text"
+                                                value={wechat}
+                                                readOnly
+                                            />
+                                        </div>
+
+                                        <div className="form-group">
+                                            <label htmlFor="gender">Gender</label>
+                                            <input
+                                                className="form-control"
+                                                id="gender"
+                                                name="gender"
+                                                type="text"
+                                                value={gender}
+                                                readOnly
+                                            />
+                                        </div>
+
+                                        <div className="form-group">
+                                            <label htmlFor="graduatedFrom">GraduatedFrom</label>
+                                            <input
+                                                className="form-control"
+                                                id="graduatedFrom"
+                                                name="graduatedFrom"
+                                                type="text"
+                                                value={graduatedFrom}
+                                                readOnly
+                                            />
+                                        </div>
+
+                                        <div className="form-group">
+                                            <label htmlFor="homeTown">HomeTown</label>
+                                            <input
+                                                className="form-control"
+                                                id="homeTown"
+                                                name="homeTown"
+                                                type="text"
+                                                value={homeTown}
+                                                readOnly
+                                            />
+                                        </div>
+
+                                        <div className="form-group">
+                                            <label htmlFor="major">Major</label>
+                                            <input
+                                                className="form-control"
+                                                id="major"
+                                                name="major"
+                                                type="text"
+                                                value={major}
+                                                readOnly
+                                            />
+                                        </div>
+
+                                        <button className="btn btn-primary btn-block" onClick={() => this.props.checkStudent(null)}>back</button>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </React.Fragment>
+
+
             );
         } else {
             return <p>No Information!!!</p>;
