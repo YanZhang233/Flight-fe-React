@@ -1,13 +1,19 @@
 import React from "react";
+import axios from "../base.js";
+import Qs from 'qs';
 
 class UpdateStudentInfo extends React.Component {
 
     state = {
-      defaultInfo: null
+      defaultInfo: null,
+      avatar: null
     }
 
     componentWillMount() {
-      this.setState({ defaultInfo: this.props.default });
+      this.setState({ 
+        defaultInfo: this.props.default, 
+        avatar: this.props.default.avatar 
+      });
     }
 
     handleChange = event => {
@@ -19,7 +25,29 @@ class UpdateStudentInfo extends React.Component {
     };
 
     handleUpdate = event => {
-      this.props.updateStudentInfo(this.state.defaultInfo);
+        event.preventDefault();
+        this.props.updateStudentInfo(this.state.defaultInfo, this.state.avatar);
+    }
+
+    avatarChangeHandler = (event) => {
+        const image = event.target.files[0];
+        this.uploadHandler(image);
+    }
+
+    uploadHandler = (image) => {
+        console.log(image);
+        const formData = new FormData();
+        formData.append('upload_file', image);
+        axios.post(`/user/avatar`, formData
+        )
+        .then(res => {
+            console.log(res.data);
+            if(res.data.status === 0) {
+                this.setState({ avatar: res.data.data.url });
+            } else {
+                alert("Upload avatar failed!");
+            }    
+        })
     }
 
     render() {
@@ -29,16 +57,29 @@ class UpdateStudentInfo extends React.Component {
                 <React.Fragment>
 
                     <div className="container">
+
                         <div className="row">
-                            <div className="col-md-3">
-                                <div className="thumbnail">
-                                    <img  className="img-responsive" src="" />
-                                    <h2>UserName</h2>
+
+
+                            <div className="col-xs-12 col-md-3">
+                                <div className="thumbnail" id="infoAvatar" >
+                                    <img  className="img-responsive" src={this.state.avatar} />
+                                    <br/>
+                                    <div className="caption-full">
+                                    <label htmlFor="input-avatar" id="avatarChange" className="btn btn-primary">
+                                        Change Avatar
+                                    </label>
+                                    <input
+                                        id="input-avatar"
+                                        name="upload_file"
+                                        type="file"
+                                        onChange={this.avatarChangeHandler}
+                                    />
+                                    </div>
                                 </div>
 
                             </div>
-
-                            <div className="col-md-9">
+                            <div className="col-xs-12 col-md-9">
                                 <div className="well">
                                     <form onSubmit={this.handleUpdate}>
                                         <div className="form-group">
@@ -79,9 +120,9 @@ class UpdateStudentInfo extends React.Component {
 
                                         <div className="form-group">
                                             <label htmlFor="gender">Gender</label>
-                                            <select className="form-control" id="gender" name="gender" onChange={this.handleChange} value={this.state.defaultInfo.gender}>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
+                                            <select className="form-control" id="gender" name="gender" readOnly value={this.state.defaultInfo.gender}>
+                                                <option value="1">Male</option>
+                                                <option value="0">Female</option>
                                             </select>
                                         </div>
 
@@ -121,8 +162,10 @@ class UpdateStudentInfo extends React.Component {
                                             />
                                         </div>
 
-                                        <button type="submit">Save Information</button>
-                                        <button onClick={this.props.infoSwitch}>Back</button>
+                                        <button className="btn btn-success" type="submit">Save Information</button>
+                                        <br/>
+                                        <br/>
+                                        <a onClick={this.props.infoSwitch}>Back</a>
 
                                     </form>
 

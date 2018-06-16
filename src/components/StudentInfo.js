@@ -17,18 +17,17 @@ class StudentInfo extends React.Component {
         axios.get(`/user/${userId}`
         )
         .then(res => {
-            //console.log(res.data);
+            console.log(res.data);
             if(res.data.status === 0) {
                 this.setState({ studentInfo: res.data.data });
             }
         })
     };
 
-    updateStudentInfo = updatedInfo => {
+    updateStudentInfo = (updatedInfo, avatar) => {
         const { 
           wechat, 
           actualName, 
-          gender, 
           graduatedFrom, 
           homeTown, 
           major
@@ -38,17 +37,17 @@ class StudentInfo extends React.Component {
                 Qs.stringify({ 
                     wechat, 
                     actualName, 
-                    gender, 
                     graduatedFrom, 
                     homeTown, 
-                    major
+                    major,
+                    avatar
                 }),
         )
         .then(res => {
             console.log(res.data);
             if(res.data.status === 0) {
                 this.setState({ studentInfo: res.data.data });
-                alert("Update your information success!");
+                this.props.infoSwitch();
             } else {
                 alert(res.data.msg);
             }

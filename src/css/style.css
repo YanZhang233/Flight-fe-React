@@ -42,7 +42,7 @@ textarea {
   font-weight: 600;
   text-align: center;
   color: #3e588f;
-  margin-top: 5%;
+  margin: 50px 0 30px 0;
   text-transform: uppercase;
   letter-spacing: 4px;
 }
@@ -139,17 +139,18 @@ select {
 }
 .display-content-container {
   background-color: #fff;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
   border-bottom: 30px solid #5199d7;
   opacity: 0.9;
-  width: 450px;
+  width: 350px;
   border-radius: 0px 0px 15px 15px;
 }
 .display-header {
   background-color: #5199d7;
+  margin: 0px auto;
   height: 30px;
   color: #fff;
-  width: 450px;
+  width: 350px;
   border-radius: 15px 15px 0px 0px;
 }
 .info {
@@ -181,4 +182,23 @@ select {
 .description {
   padding-left: 20px;
   margin-top: 20px;
+}
+.paginationContainer {
+  width: 200px;
+  height: 80px;
+  margin: 0 auto;
+}
+#infoAvatar {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 80px auto;
+}
+#avatarChange {
+  margin-top: 20px;
+}
+.well {
+  margin: 0 auto;
+}
+input[type="file"] {
+  display: none;
 }

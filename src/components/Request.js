@@ -59,7 +59,7 @@ class Request extends React.Component {
 
 
 
-                        <div className="col-xs-12 col-md-6" id="text-center">
+                        <div className="col-xs-12 col-sm-6 col-md-4">
                             <div className="display-header">
                             </div>
                             <div className="display-content-container" >
@@ -83,6 +83,7 @@ class Request extends React.Component {
                                     </div>
 
                                 </div>
+
 
                                 <div className="row infoLine" >
                              <span className="info">
@@ -113,6 +114,8 @@ class Request extends React.Component {
                                 <FontAwesomeIcon icon={faSuitcase} />  {baggage} Baggage(s)
                              </span>
                                 </div>
+
+
                                 <p className="description">{description}</p>
 
                                 {this.state.haveInterest ?
@@ -128,7 +131,7 @@ class Request extends React.Component {
                                         <i className="far fa-thumbs-up "></i>
 
                                     }
-                                    <span> {like} people want to help {gender===0? "her" : "him"}</span>
+                                    <span> {like} people want to help him/her</span>
                                 </p>
                             </div>
                         </div>

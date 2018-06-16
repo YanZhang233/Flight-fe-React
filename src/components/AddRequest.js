@@ -32,58 +32,88 @@ class AddRequest extends React.Component {
 
     render() {
         return (
-          <div className="edit-content-container">
-          <form className="display-info" onSubmit={this.createRequest}>
-            <p>Airport:</p>
-            <select name="airport" ref={this.airportRef}>
-              <option value="DCA">DCA</option>
-              <option value="IAD">IAD</option>
-              <option value="DUL">DUL</option>
-            </select>
-            <p>Destination:</p>
-            <input
-              name="destination"
-              ref={this.destinationRef}
-              type="text"
-              placeholder="Destination"
-            />
-            <p>Time:</p>
-            <input
-              name="time"
-              ref={this.timeRef}
-              type="text"
-              placeholder="Arrival Time"
-            />
-            <p>Flight Information:</p>
-            <input
-              name="flightInfo"
-              ref={this.flightInfoRef}
-              type="text"
-              placeholder="Flight Info"
-            />
-            <p>Description:</p>
-            <textarea
-              name="description" 
-              ref={this.descriptionRef}
-              placeholder="Description" 
-            />
-            <p>Number Of People:</p>
-            <select name="numOfPeople" ref={this.numOfPeopleRef}>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
-            <p>Baggage:</p>
-            <select name="baggage" ref={this.baggageRef}>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
-            <button className="formButton" type="submit">+ Add Request</button>
-          </form>
+          <div className="container">
+              <div className="row ">
+
+                  <div className="formDiv">
+                      <form onSubmit={this.createRequest}>
+                          <div className="form-group">
+                              <label htmlFor="destination">Destination</label>
+                              <input
+                                  className="form-control"
+                                  id="destination"
+                                  name="destination"
+                                  type="text"
+                                  ref={this.destinationRef}
+                              />
+                          </div>
+
+                          <div className="form-group">
+                              <label htmlFor="time">Arrival Time</label>
+                              <input
+                                  className="form-control"
+                                  id="time"
+                                  name="time"
+                                  id="time"
+                                  ref={this.timeRef}
+                                  type="text"
+                              />
+                          </div>
+
+                          <div className="form-group">
+                              <label htmlFor="flightInfo">flightInfo</label>
+                              <input
+                                  className="form-control"
+                                  id="flightInfo"
+                                  name="flightInfo"
+                                  ref={this.flightInfoRef}
+                                  type="text"
+                              />
+                          </div>
+
+                          <div className="form-group">
+                              <label htmlFor="numOfPeople">Number Of People</label>
+                              <select  className="form-control" id="numOfPeople" name="numOfPeople" ref={this.numOfPeopleRef}>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                              </select>
+                          </div>
+
+                          <div className="form-group">
+                              <label htmlFor="baggage">number of baggage</label>
+                              <select  className="form-control" id="baggage" name="baggage" ref={this.baggageRef}>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                              </select>
+                          </div>
+
+                          <div className="form-group">
+                              <label htmlFor="description">Description</label>
+                              <input
+                                  className="form-control"
+                                  id="description"
+                                  name="description"
+                                  id="time"
+                                  ref={this.descriptionRef}
+                                  type="text"
+                              />
+                          </div>
+
+                          <button className="btn btn-primary btn-block" type="submit"><i className="fas fa-plus"></i>  Add Request</button>
+
+                      </form>
+
+
+                  </div>
+
+
+              </div>
           </div>
+
         );
     }
 }
