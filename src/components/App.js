@@ -14,7 +14,8 @@ class App extends React.Component {
 
     state = {
         uid: null,
-        role: null
+        role: null,
+        goToPerson: false
     }
 
     componentWillMount() {
@@ -65,6 +66,11 @@ class App extends React.Component {
             }
         })
     };
+
+    infoSwitch = () => {
+        const ifGoToPerson = !this.state.goToPerson;
+        this.setState({ goToPerson: ifGoToPerson });
+    }
 
     render() {
 
@@ -118,7 +124,9 @@ class App extends React.Component {
                                 </div>
                                 <div className="collapse navbar-collapse" id="collapsebar">
                                     <ul className="nav navbar-nav navbar-right">
-                                        <li><a href="#" >PersonalInfo <i className="fas fa-user"></i></a></li>
+                                        <li><a href="#" onClick={this.infoSwitch}>
+                                            {this.state.goToPerson?"RequestInfo":"PersonalInfo"}                    
+                                        <i className="fas fa-user"></i></a></li>
                                         <li><a href="#" onClick={this.logout}>Logout <i className="fas fa-sign-out-alt"></i></a></li>
                                     </ul>
                                 </div>
@@ -126,6 +134,8 @@ class App extends React.Component {
                         </nav>
                         <Student 
                             studentId = {this.state.uid}
+                            goToPerson = {this.state.goToPerson}
+                            infoSwitch = {this.infoSwitch}
                         />
                     </React.Fragment>
                 );

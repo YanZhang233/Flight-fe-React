@@ -37,9 +37,9 @@ class EditRequest extends React.Component {
                               <div className="form-group">
                                   <label htmlFor="airport">Airport</label>
                                   <select className="form-control" id="airport" name="airport" onChange={this.handleChange} value={this.state.defaultRequest.airport}>
-                                      <option value="DCA">DCA</option>
-                                      <option value="IAD">IAD</option>
-                                      <option value="DUL">DUL</option>
+                                      <option value="Washington Dulles International Airport">Washington Dulles International Airport</option>
+                                      <option value="Ronald Reagan Washington National Airport">Ronald Reagan Washington National Airport</option>
+                                      <option value="Baltimore International Airport">Baltimore International Airport</option>
                                   </select>
                               </div>
 

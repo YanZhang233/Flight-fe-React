@@ -38,6 +38,14 @@ class AddRequest extends React.Component {
                   <div className="formDiv">
                       <form onSubmit={this.createRequest}>
                           <div className="form-group">
+                              <label htmlFor="airport">Airport</label>
+                              <select  className="form-control" id="airport" name="airport" ref={this.airportRef}>
+                                  <option value="Washington Dulles International Airport">Washington Dulles International Airport</option>
+                                  <option value="Ronald Reagan Washington National Airport">Ronald Reagan Washington National Airport</option>
+                                  <option value="Baltimore International Airport">Baltimore International Airport</option>
+                              </select>
+                          </div>
+                          <div className="form-group">
                               <label htmlFor="destination">Destination</label>
                               <input
                                   className="form-control"

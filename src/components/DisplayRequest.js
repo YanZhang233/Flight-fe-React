@@ -1,6 +1,4 @@
 import React from "react";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import { faFighterJet } from "@fortawesome/fontawesome-free-solid";
 
 class DisplayRequest extends React.Component {
 
@@ -29,7 +27,7 @@ class DisplayRequest extends React.Component {
                         <li className="list-group-item">Flight Information: {flightInfo}</li>
                         <li className="list-group-item">Baggage: {baggage}</li>
                         <li className="list-group-item">Description: {description}</li>
-                        <li className="list-group-item"  id="displayLike" onClick={this.props.likeSwitch}>People want to help  <span className="badge">{like}</span></li>
+                        <li className="list-group-item" id="displayLike" onClick={this.props.likeSwitch}>People want to help  <span className="badge">{like}</span></li>
                         <button className="btn btn-primary btn-block" onClick={this.props.editSwitch}>Edit</button>
 
                     </ul>

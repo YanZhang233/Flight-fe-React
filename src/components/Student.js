@@ -9,8 +9,7 @@ class Student extends React.Component {
 
     state = {
         stuId: null,
-        requestInfo: null,
-        goToPerson: false
+        requestInfo: null
     }
 
     componentWillMount() {
@@ -49,7 +48,7 @@ class Student extends React.Component {
             console.log(res.data);
             if(res.data.status === 0) {
                 this.findRequest();
-                alert("Add your request success!");
+                //alert("Add your request success!");
             } else {
                 alert(res.data.msg);
             }
@@ -89,7 +88,7 @@ class Student extends React.Component {
               .then(res => {
                   if(res.data.status === 0) {
                     this.setState({ requestInfo: null });
-                    alert("Cancel your request success!");
+                    //alert("Cancel your request success!");
                   } else {
                     alert(res.data.msg);
                   }
@@ -97,19 +96,13 @@ class Student extends React.Component {
         }
     };
 
-    infoSwitch = () => {
-        const ifGoToPerson = !this.state.goToPerson;
-        this.setState({ goToPerson: ifGoToPerson });
-    }
-
     render() {
-        const studentInfo = <button className="logout" onClick={this.infoSwitch}>Student Information</button>;
-
-        if(this.state.goToPerson) {
+        
+        if(this.props.goToPerson) {
             return (
                 <StudentInfo
                     studentId={this.props.studentId} 
-                    infoSwitch={this.infoSwitch}
+                    infoSwitch={this.props.infoSwitch}
                 />
             );
         } else {
@@ -117,7 +110,6 @@ class Student extends React.Component {
             if(this.state.requestInfo) {
                 return (
                     <div>
-                        {studentInfo}
                     <Display
                         requestInfo={this.state.requestInfo}
                         updateRequest={this.updateRequest}
@@ -128,7 +120,6 @@ class Student extends React.Component {
             }
             return (
                 <div>
-                    {studentInfo}
                 <div className="display-info">
                     <h2 className="info-title">Waiting for pick-up...😁</h2>
                     <AddRequest 
