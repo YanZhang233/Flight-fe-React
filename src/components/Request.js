@@ -75,9 +75,9 @@ class Request extends React.Component {
                                     <div className="person">
                                         {
                                             gender===0?
-                                                <p>gender : <i className="fas fa-mars"></i> </p>
+                                                <p>gender : <i className="fas fa-venus"></i> </p>
                                                 :
-                                                <p> gender : <i className="fas fa-venus"></i></p>
+                                                <p> gender : <i className="fas fa-mars"></i></p>
                                         }
                                         <p>From : {homeTown}</p>
                                         <p>School : {graduatedFrom}</p>
