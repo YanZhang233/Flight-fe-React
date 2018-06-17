@@ -16,8 +16,7 @@ class App extends React.Component {
     state = {
         uid: null,
         role: null,
-        goToPerson: false,
-        goToLogin:false
+        goToPerson: false
     }
 
     componentWillMount() {
@@ -57,12 +56,11 @@ class App extends React.Component {
         )
         .then(res => {
             if(res.data.status === 0) {
-                this.setState({ uid: null });
+                this.setState({ uid: null, role: null });
                 cookie.remove('flightGWU_email', { path: '/' });
                 cookie.remove('flightGWU_pass', { path: '/' });
                 cookie.remove('JSESSIONID', { path: '/' });
                 //alert("Log out success!");
-                this.goToLogin();
             } else {
                 alert(res.data.msg);
             }
@@ -74,28 +72,12 @@ class App extends React.Component {
         this.setState({ goToPerson: ifGoToPerson });
     }
 
-    goToLogin = () => {
-        const ifGoToLogin = !this.state.goToLogin;
-        this.setState({ goToLogin: ifGoToLogin });
-    }
-
     render() {
 
         //if the user has not logged in
         if(!this.state.uid) {
-            return (
-                <React.Fragment>
-                    {this.state.goToLogin?
-                        <Login 
-                            login={this.login}
-                            goToLogin={this.goToLogin}
-                        />
-                        : 
-                        <Intro
-                            goToLogin={this.goToLogin}
-                        />
-                    }
-                </React.Fragment>
+            return (  
+                <Intro />
             );
         } else {
             //if the user is a student

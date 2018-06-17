@@ -26,7 +26,7 @@ class Volunteer extends React.Component {
     }
 
     getRequests = (pageIndex) => {
-        pageIndex = typeof pageIndex != "undefined" ? pageIndex : this.state.currentPage;
+        pageIndex = typeof pageIndex !== "undefined" ? pageIndex : this.state.currentPage;
         axios.get(`/flight/?pageIndex=${pageIndex}`
         )
         .then(res => {

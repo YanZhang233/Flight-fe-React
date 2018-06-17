@@ -35,7 +35,6 @@ class Register extends React.Component {
         const password = this.passRef.value.value;
 
 
-
         if(role === `student`) {
             const graduatedFrom = this.graduatedFromRef.value.value;
             const gender = this.genderRef.value.value;
@@ -190,7 +189,7 @@ class Register extends React.Component {
 
                                 <button className="btn btn-primary btn-block" type="submit">Sign Up</button>
 
-                                <button className="btn btn-primary btn-block"  onClick={() => {this.props.history.push(`/`)}}>
+                                <button className="btn btn-primary btn-block"  onClick={() => {this.props.history.push(`/login`)}}>
                                     Log In
                                 </button>
                                 <br/>

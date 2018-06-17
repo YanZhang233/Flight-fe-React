@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "../base.js";
+import Qs from 'qs';
 import { withRouter } from "react-router-dom";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
@@ -12,8 +14,23 @@ class Login extends React.Component {
         const email = this.emailRef.value.value;
         const password = this.passRef.value.value;
 
-        this.props.login(email, password);
+        this.login(email, password);
     }
+
+    login = (email, password) => {
+        axios.post(`/user`, 
+                    Qs.stringify({ email, password })
+            )
+            .then(res => {
+                if(res.data.status === 0) {
+                    const userId = res.data.data.id;
+                    const userRole = res.data.data.role;
+                    this.props.history.push(`/`)
+                } else {
+                    alert(res.data.msg);
+                }
+            })
+    };
 
     render() {
         return (
@@ -53,7 +70,7 @@ class Login extends React.Component {
                             <button  className="btn btn-primary btn-block" onClick={() => {this.props.history.push(`/register`)}}>
                                 Sign Up
                             </button>
-                            <a className="back" onClick={this.props.goToLogin}>
+                            <a className="back" onClick={() => {this.props.history.push(`/`)}}>
                                 Back
                             </a>
                         </form>

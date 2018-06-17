@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import App from "./App";
+import Login from "./Login";
 import Register from "./Register";
 import NotFound from "./NotFound";
 
@@ -8,6 +9,7 @@ const Router = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={App} />
+      <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route component={NotFound} />
     </Switch>
