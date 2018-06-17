@@ -62,10 +62,13 @@ class UpdateStudentInfo extends React.Component {
 
 
                             <div className="col-xs-12 col-md-3">
-                                <div className="thumbnail" id="infoAvatar" >
-                                    <img  className="img-responsive" src={this.state.avatar} />
-                                    <br/>
-                                    <div className="caption-full">
+                                <div className="col-md-12" id="thumContainer">
+                                    <div className="thumbnail" id="infoAvatar" >
+                                        <img  className="img-responsive" src={this.state.avatar} />
+                                    </div>
+                                </div>
+
+                                <div  className="col-md-12">
                                     <label htmlFor="input-avatar" id="avatarChange" className="btn btn-primary">
                                         Change Avatar
                                     </label>
@@ -75,7 +78,6 @@ class UpdateStudentInfo extends React.Component {
                                         type="file"
                                         onChange={this.avatarChangeHandler}
                                     />
-                                    </div>
                                 </div>
 
                             </div>

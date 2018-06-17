@@ -46,12 +46,15 @@ class StudentInRequest extends React.Component {
 
 
                             <div className="col-xs-12 col-md-3">
-                                <div className="thumbnail" id="infoAvatar" >
-                                    <img  className="img-responsive" src={avatar} />
-                                    <br/>
-                                    <div className="caption-full">
-                                        <h4>{email}</h4>
+                                <div className="col-md-12" id="thumContainer">
+                                    <div className="thumbnail" id="infoAvatar" >
+                                        <img  className="img-responsive" src={avatar} />
+
                                     </div>
+                                </div>
+
+                                <div  className="col-md-12">
+                                    <h4>{email}</h4>
                                 </div>
 
                             </div>
