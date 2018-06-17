@@ -66,6 +66,7 @@ class App extends React.Component {
                 cookie.remove('flightGWU_email', { path: '/' });
                 cookie.remove('flightGWU_pass', { path: '/' });
                 cookie.remove('JSESSIONID', { path: '/' });
+                localStorage.clear();
                 //alert("Log out success!");
             } else {
                 alert(res.data.msg);
