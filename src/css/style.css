@@ -164,7 +164,6 @@ select {
   width: 80px;
   maigin: 0;
   float: left;
-  cursor: pointer;
 }
 #avatarLine {
   margin: 0;
@@ -207,7 +206,7 @@ select {
   width: 60%;
   margin: 0 auto 80px auto;
 }
-#displayLike:hover {
+#displayLike: hover {
   text-decoration: none;
   cursor: pointer;
   background-color: #a8c1d7;
@@ -233,7 +232,51 @@ select {
   margin-left: 10px;
   margin-top: 7px;
 }
-.back:hover {
-  text-decoration: none;
+.search-input {
+  height: 40px;
+  line-height: 40px;
+  border-top: 2px solid #5e5e5e;
+  border-left: 2px solid #5e5e5e;
+  border-bottom: 2px solid #5e5e5e;
+  outline: none;
+  font-size: 15px;
+  padding-left: 10px;
+}
+#search-btn {
+  display: inline-block;
+  padding: 0 20px;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  border: none;
+  background: #6198d2;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  outline: none;
   cursor: pointer;
+}
+.head-con {
+  margin: 0 auto 60px auto;
+  position: relative;
+  overflow: hidden;
+}
+.search-input-con {
+  padding: 0;
+}
+.search-btn-con {
+  padding: 0;
+}
+.search-title-con {
+  padding: 0;
+  text-align: center;
+}
+#position-con {
+  display: block;
+  height: 40px;
+  font-weight: 700;
+  margin: 0;
+  padding-top: 8px;
+  padding-right: 10px;
+  text-align: right;
 }

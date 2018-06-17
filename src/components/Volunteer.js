@@ -28,7 +28,6 @@ class Volunteer extends React.Component {
     }
 
     getRequests = (pageIndex) => {
-        pageIndex = typeof pageIndex !== "undefined" ? pageIndex : this.state.currentPage;
         axios.get(`/flight/?pageIndex=${pageIndex}`
         )
         .then(res => {
@@ -43,17 +42,22 @@ class Volunteer extends React.Component {
     }
 
     searchRequests = () => {
-        const location = this.locationRef.value.value;
-        axios.get(`/flight/location?location=${location}`
-        )
-        .then(res => {
-            if(res.data.status === 0) {
-                this.setState({ requests: res.data.data.content });
-                this.setState({ currentPage: res.data.data.number });
-                this.setState({ totalPages: res.data.data.totalPages });
-            }
-            console.log(this.state.requests);
-        })
+        const location = (this.locationRef.value.value).trim();
+        console.log(location);
+        if(location !== "") {
+            axios.get(`/flight/location?location=${location}`
+            )
+            .then(res => {
+                if(res.data.status === 0) {
+                    this.setState({ requests: res.data.data.content });
+                    this.setState({ currentPage: res.data.data.number });
+                    this.setState({ totalPages: res.data.data.totalPages });
+                }
+                console.log(this.state.requests);
+            })
+        } else {
+            this.getRequests(0);
+        }
     }
 
     sendInterest = (requestId) => {
@@ -62,7 +66,6 @@ class Volunteer extends React.Component {
         .then(res => {
             if(res.data.status === 0) {
                 this.getRequests();
-                alert("Your interest has been sent to the new student!");
             } else {
                 alert(res.data.msg);
             }
@@ -95,16 +98,27 @@ class Volunteer extends React.Component {
                 />
             );
         } else {
-
             return (
                 <React.Fragment>
-                    <input
-                      name="location"
-                      ref={this.locationRef}
-                      type="text"
-                    />
-                    <button onClick={this.searchRequests}>search</button>
                     <div className="container">
+                        <div className="row head-con">
+                            <div className="col-xs-3 search-title-con">
+                                <h3 id="position-con"><i className="fas fa-map-marker-alt"></i></h3>
+                            </div>
+                            <div className="col-xs-5 search-input-con">
+                                <input 
+                                    className="search-input" 
+                                    id="search-input" 
+                                    name="location"
+                                    ref={this.locationRef}
+                                    type="text"
+                                />
+                            </div>
+                            <div className="col-xs-4 search-btn-con">
+                                <button id="search-btn" onClick={this.searchRequests}>Search</button>
+                            </div>
+                        </div>
+
                         <div className="row showRequests" >
                             {Object.keys(this.state.requests).map(key => (
                                 <Request
@@ -117,7 +131,7 @@ class Volunteer extends React.Component {
                             ))}
                         </div>
                         <div className="row paginationContainer">
-                            {this.state.totalPages === 1?
+                            {this.state.totalPages < 2?
                                 ""
                                 :
                                 <Pagination
