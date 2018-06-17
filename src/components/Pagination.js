@@ -27,6 +27,7 @@ class Pagination extends React.Component {
             previous = current - 1;
         }
 
+
         return (
             <nav aria-label="Page navigation example">
               <ul className="pagination">
@@ -42,13 +43,13 @@ class Pagination extends React.Component {
                   </a>
                 </li>
                 {previous >= 0?
-                    <li className="page-item"><a className="page-link" href="#" onClick={() => this.handleClick(previous)}>{previous + 1}</a></li>
+                    <li className={`page-item ${previous===currentPage?"active":""}`}><a className="page-link" href="#" onClick={() => this.handleClick(previous)}>{previous + 1}</a></li>
                     :
                     ""
                 }
-                <li className="page-item"><a className="page-link" href="#" onClick={() => this.handleClick(current)}>{current + 1}</a></li>
+                <li className={`page-item ${current===currentPage?"active":""}`}><a className="page-link" href="#" onClick={() => this.handleClick(current)}>{current + 1}</a></li>
                 {next < this.props.totalPages?
-                    <li className="page-item"><a className="page-link" href="#" onClick={() => this.handleClick(next)}>{next + 1}</a></li>
+                    <li className={`page-item ${next===currentPage?"active":""}`}><a className="page-link" href="#" onClick={() => this.handleClick(next)}>{next + 1}</a></li>
                     :
                     ""
                 }
