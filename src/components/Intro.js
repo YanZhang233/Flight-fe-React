@@ -22,7 +22,7 @@ class Intro extends React.Component {
                        </div>
                        <div className="collapse navbar-collapse" id="collapsebar">
                            <ul className="nav navbar-nav navbar-right">
-                               <li><a href="/">Login <i className="fas fa-sign-in-alt"></i></a></li>
+                               <li><a href="#" onClick={this.props.goToLogin}>Login <i className="fas fa-sign-in-alt"></i></a></li>
                                <li><a href="/register">Signup <i className="fas fa-user-plus"></i></a></li>
                            </ul>
                        </div>
@@ -41,7 +41,7 @@ class Intro extends React.Component {
                        <div className="jumbotron">
                            <h1>Welcome</h1>
                            <p>blablabla</p>
-                           <p><a className="btn btn-primary btn-lg" href="/">Get Started</a></p>
+                           <p><a className="btn btn-primary btn-lg" href="#" onClick={this.props.goToLogin}>Get Started</a></p>
                        </div>
                    </div>
 

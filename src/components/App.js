@@ -2,6 +2,7 @@ import React from "react";
 import axios from "../base.js";
 import Qs from 'qs';
 import cookie from "react-cookies";
+import Intro from "./Intro";
 import Login from "./Login";
 import Student from "./Student";
 import Volunteer from "./Volunteer";
@@ -15,7 +16,8 @@ class App extends React.Component {
     state = {
         uid: null,
         role: null,
-        goToPerson: false
+        goToPerson: false,
+        goToLogin:false
     }
 
     componentWillMount() {
@@ -59,8 +61,8 @@ class App extends React.Component {
                 cookie.remove('flightGWU_email', { path: '/' });
                 cookie.remove('flightGWU_pass', { path: '/' });
                 cookie.remove('JSESSIONID', { path: '/' });
-                alert("Log out success!");
-                this.props.history.push(`/intro`);
+                //alert("Log out success!");
+                this.goToLogin();
             } else {
                 alert(res.data.msg);
             }
@@ -72,38 +74,28 @@ class App extends React.Component {
         this.setState({ goToPerson: ifGoToPerson });
     }
 
+    goToLogin = () => {
+        const ifGoToLogin = !this.state.goToLogin;
+        this.setState({ goToLogin: ifGoToLogin });
+    }
+
     render() {
 
-        
         //if the user has not logged in
         if(!this.state.uid) {
             return (
                 <React.Fragment>
-                    <nav className="navbar navbar-default fixed-top ">
-                        <div className="container-fluid">
-                            <div className="navbar-header">
-                                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"
-                                        data-target="#collapsebar" aria-expanded="false">
-                                    <span className="sr-only">Toggle navigation</span>
-                                    <span className="icon-bar"></span>
-                                    <span className="icon-bar"></span>
-                                </button>
-                                <a className="navbar-brand" href="/">Flight <i className="fas fa-plane"></i></a>
-
-                            </div>
-                            <div className="collapse navbar-collapse" id="collapsebar">
-                                <ul className="nav navbar-nav navbar-right">
-                                    <li><a href="/" >Login <i className="fas fa-sign-in-alt"></i></a></li>
-                                    <li><a href="/register">Signup <i className="fas fa-user-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-
-                    <Login login={this.login}/>
-
+                    {this.state.goToLogin?
+                        <Login 
+                            login={this.login}
+                            goToLogin={this.goToLogin}
+                        />
+                        : 
+                        <Intro
+                            goToLogin={this.goToLogin}
+                        />
+                    }
                 </React.Fragment>
-
             );
         } else {
             //if the user is a student
