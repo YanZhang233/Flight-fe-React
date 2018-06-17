@@ -108,6 +108,7 @@ class Register extends React.Component {
 
                                 <div className="form-group">
                                     <input
+                                        required
                                         className="form-control"
                                         name="email"
                                         type="email"
@@ -118,6 +119,7 @@ class Register extends React.Component {
 
                                 <div className="form-group">
                                     <input
+                                        required
                                         className="form-control"
                                         name="wechat"
                                         type="text"
@@ -181,6 +183,7 @@ class Register extends React.Component {
                                 }
                                 <div className="form-group">
                                     <input
+                                        required
                                         className="form-control"
                                         name="password"
                                         type="password"
