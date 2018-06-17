@@ -44,10 +44,15 @@ class Volunteer extends React.Component {
 
     searchRequests = () => {
         const location = this.locationRef.value.value;
-        axios.get(`/flight/?location=${location}`
+        axios.get(`/flight/location?location=${location}`
         )
         .then(res => {
-            //console.log(res.data);
+            if(res.data.status === 0) {
+                this.setState({ requests: res.data.data.content });
+                this.setState({ currentPage: res.data.data.number });
+                this.setState({ totalPages: res.data.data.totalPages });
+            }
+            console.log(this.state.requests);
         })
     }
 

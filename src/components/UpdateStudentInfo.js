@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "../base.js";
-import Qs from 'qs';
 
 class UpdateStudentInfo extends React.Component {
 
