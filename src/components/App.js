@@ -20,7 +20,13 @@ class App extends React.Component {
     }
 
     componentWillMount() {
-        this.loginWithCookie();
+        const email = localStorage.getItem('Email');
+        const password = localStorage.getItem('Password');
+        if(email !== null && password !== null) {
+            this.login(email, password);
+        } else {
+            this.loginWithCookie();
+        }
     }
 
     loginWithCookie = () => {

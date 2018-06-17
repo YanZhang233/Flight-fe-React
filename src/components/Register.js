@@ -56,6 +56,8 @@ class Register extends React.Component {
                 .then(res => {
                     if(res.data.status === 0) {
                         alert("Sign up successfully as a new student!");
+                        localStorage.setItem('Email', email);
+                        localStorage.setItem('Password', password);
                         this.props.history.push(`/`);
                     } else {
                         alert(res.data.msg);
