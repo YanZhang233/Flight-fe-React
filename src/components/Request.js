@@ -7,10 +7,14 @@ import { faCar, faArrowsAltH, faFighterJet, faCalendarAlt, faUsers, faSuitcase, 
 class Request extends React.Component {
 
     state = {
-        haveInterest: false
+        haveInterest: null
     }
 
     componentWillMount() {
+        this.checkInterest();
+    }
+
+    componentWillReceiveProps() {
         this.checkInterest();
     }
 
@@ -19,7 +23,9 @@ class Request extends React.Component {
         )
         .then(res => {
             if(res.data.status === 0) {
-                this.setState({ haveInterest: true});
+                this.setState({ haveInterest: true });
+            } else {
+                this.setState({ haveInterest: false });
             }
         })
     }

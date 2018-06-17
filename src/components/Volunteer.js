@@ -6,6 +6,8 @@ import Pagination from "./Pagination";
 
 class Volunteer extends React.Component {
 
+    locationRef = React.createRef();
+
     state = {
         volId: null,
         requests: [],
@@ -37,6 +39,15 @@ class Volunteer extends React.Component {
                 this.setState({ totalPages: res.data.data.totalPages });
             }
             console.log(this.state.requests);
+        })
+    }
+
+    searchRequests = () => {
+        const location = this.locationRef.value.value;
+        axios.get(`/flight/?location=${location}`
+        )
+        .then(res => {
+            //console.log(res.data);
         })
     }
 
@@ -79,8 +90,15 @@ class Volunteer extends React.Component {
                 />
             );
         } else {
+
             return (
                 <React.Fragment>
+                    <input
+                      name="location"
+                      ref={this.locationRef}
+                      type="text"
+                    />
+                    <button onClick={this.searchRequests}>search</button>
                     <div className="container">
                         <div className="row showRequests" >
                             {Object.keys(this.state.requests).map(key => (
