@@ -72,8 +72,11 @@ class Register extends React.Component {
                 }),
             )
                 .then(res => {
+                    console.log(res.data);
                     if(res.data.status === 0) {
                         alert("Sign up successfully as a volunteer!");
+                        localStorage.setItem('Email', email);
+                        localStorage.setItem('Password', password);
                         this.props.history.push(`/`);
                     } else {
                         alert(res.data.msg);
