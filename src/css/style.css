@@ -206,7 +206,7 @@ select {
   width: 60%;
   margin: 0 auto 80px auto;
 }
-#displayLike: hover {
+#displayLike:hover {
   text-decoration: none;
   cursor: pointer;
   background-color: #a8c1d7;
