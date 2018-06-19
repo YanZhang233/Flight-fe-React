@@ -107,6 +107,7 @@ select {
 .jumbotron {
   background: url("/images/bg.jpg");
   background-size: cover;
+  color: #3e588f;
 }
 .entry {
   max-width: 500px;
@@ -294,4 +295,14 @@ select {
 }
 #register-dropzone:hover {
   cursor: pointer;
+}
+.welcome {
+  font-family: "Sans-serif";
+  font-style: oblique;
+}
+.copyright {
+  margin-top: 50px;
+  text-align: center;
+  color: #666;
+  line-height: 30px;
 }
