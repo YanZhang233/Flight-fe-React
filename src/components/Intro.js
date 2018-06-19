@@ -46,7 +46,7 @@ class Intro extends React.Component {
                        <div className="col-xs-12 col-md-5">
                            <h3 className="entry-title">使用说明</h3>
                            <div className="line"></div>
-                           <span className="post"> <i className="fas fa-calendar-alt"></i> 2018.06.15 by zz</span>
+                           <span className="post"> <i className="fas fa-calendar-alt"></i> 2018.06.19 by FoggyStudio</span>
                            <p className="para">新生申请接机: 请点击注册，填写个人信息(如家乡，毕业院校等)，登陆后请详细填写接机请求(如到达时间，航班信息等)，申请完成后，会进行匹配。接机人会根据接机信息选择接送需要接机的新同学
                            ,匹配完成后会将微信号邮箱等联系方式发送给新同学。</p>
                            <p className="para">接机人申请: 注册时选择提供帮助，只支持edu邮箱注册，注册完成后登录即可浏览所有的接机请求，和请求对应的新生个人信息；激活邮箱(验证您的学生身份)之后可选择提供帮助，点击提供帮助后会将您的联系方式发送给新生。</p>
@@ -57,7 +57,7 @@ class Intro extends React.Component {
                        <div className="col-xs-12 col-md-5">
                            <h3 className="entry-title">Intro to this web</h3>
                            <div className="line"></div>
-                           <span className="post"> <i className="fas fa-calendar-alt"></i> 2018.06.15 by zz</span>
+                           <span className="post"> <i className="fas fa-calendar-alt"></i> 2018.06.19 by FoggyStudio</span>
                            <p className="para">For new student: sign up as new student, fill in personal information(hometown, school,etc.),
                                login to fill in the form about your request information(arrival time, flight number,etc.). After submiting the form, senior students will select the new students who need help by their request info.</p>
                            <p className="para">For senior students: sign up as senior student, only edu emails are supported, after registration, you can login to
@@ -68,7 +68,7 @@ class Intro extends React.Component {
                    </div>
 
                    <p className="copyright">
-                       2018-06
+                       2018@FoggyStudio
                    </p>
 
 
