@@ -34,7 +34,6 @@ class Pagination extends React.Component {
                 <li className="page-item">
                   <a 
                     className="page-link" 
-                    href="#" 
                     aria-label="Previous" 
                     onClick={() => this.handleClick(currentPage - 1)}
                   >
@@ -43,20 +42,19 @@ class Pagination extends React.Component {
                   </a>
                 </li>
                 {previous >= 0?
-                    <li className={`page-item ${previous===currentPage?"active":""}`}><a className="page-link" href="#" onClick={() => this.handleClick(previous)}>{previous + 1}</a></li>
+                    <li className={`page-item ${previous===currentPage?"active":""}`}><a className="page-link" onClick={() => this.handleClick(previous)}>{previous + 1}</a></li>
                     :
                     ""
                 }
-                <li className={`page-item ${current===currentPage?"active":""}`}><a className="page-link" href="#" onClick={() => this.handleClick(current)}>{current + 1}</a></li>
+                <li className={`page-item ${current===currentPage?"active":""}`}><a className="page-link" onClick={() => this.handleClick(current)}>{current + 1}</a></li>
                 {next < this.props.totalPages?
-                    <li className={`page-item ${next===currentPage?"active":""}`}><a className="page-link" href="#" onClick={() => this.handleClick(next)}>{next + 1}</a></li>
+                    <li className={`page-item ${next===currentPage?"active":""}`}><a className="page-link" onClick={() => this.handleClick(next)}>{next + 1}</a></li>
                     :
                     ""
                 }
                 <li className="page-item">
                   <a 
                     className="page-link" 
-                    href="#" 
                     aria-label="Next" 
                     onClick={() => this.handleClick(currentPage + 1)}
                 >

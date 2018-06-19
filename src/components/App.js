@@ -114,10 +114,10 @@ class App extends React.Component {
                                 </div>
                                 <div className="collapse navbar-collapse" id="collapsebar">
                                     <ul className="nav navbar-nav navbar-right">
-                                        <li><a href="#" onClick={this.infoSwitch}>
+                                        <li><a onClick={this.infoSwitch}>
                                             {this.state.goToPerson?"RequestInfo":"PersonalInfo"}                    
                                         <i className="fas fa-user"></i></a></li>
-                                        <li><a href="#" onClick={this.logout}>Logout <i className="fas fa-sign-out-alt"></i></a></li>
+                                        <li><a onClick={this.logout}>Logout <i className="fas fa-sign-out-alt"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -146,8 +146,8 @@ class App extends React.Component {
                                 </div>
                                 <div className="collapse navbar-collapse" id="collapsebar">
                                     <ul className="nav navbar-nav navbar-right">
-                                        <li><a href="#" onClick={this.activeEmail}>ActiveEmail <i className="fas fa-envelope"></i></a></li>
-                                        <li><a href="#" onClick={this.logout}>Logout <i className="fas fa-sign-out-alt"></i></a></li>
+                                        <li><a onClick={this.activeEmail}>ActiveEmail <i className="fas fa-envelope"></i></a></li>
+                                        <li><a onClick={this.logout}>Logout <i className="fas fa-sign-out-alt"></i></a></li>
                                     </ul>
                                 </div>
                             </div>

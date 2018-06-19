@@ -70,6 +70,7 @@ class Login extends React.Component {
                             <button  className="btn btn-primary btn-block" onClick={() => {this.props.history.push(`/register`)}}>
                                 Sign Up
                             </button>
+                            <br/>
                             <a className="back" onClick={() => {this.props.history.push(`/`)}}>
                                 Back
                             </a>

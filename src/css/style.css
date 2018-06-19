@@ -285,6 +285,10 @@ select {
   text-align: right;
 }
 .back:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
   cursor: pointer;
 }
 #plus-icon {
@@ -305,4 +309,15 @@ select {
   text-align: center;
   color: #666;
   line-height: 30px;
+}
+.no-requests {
+  text-align: center;
+  font-size: 30px;
+  font-style: oblique;
+}
+.active {
+  margin: 100px;
+  text-align: center;
+  font-size: 30px;
+  color: #3e588f;
 }

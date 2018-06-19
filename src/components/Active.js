@@ -13,7 +13,10 @@ class Active extends React.Component {
 
     render () {
         return (
-            <button onClick={this.handleClick}>Go To Flight!</button>
+            <div className="active">
+                <p>Active your email successfully!</p>
+                <button className="btn btn-primary" onClick={this.handleClick}>Go To Flight</button>
+            </div>
         );
     }
 

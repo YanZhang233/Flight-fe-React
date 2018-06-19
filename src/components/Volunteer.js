@@ -126,18 +126,21 @@ class Volunteer extends React.Component {
                                 <button id="search-btn" onClick={this.searchRequests}>Search</button>
                             </div>
                         </div>
-
-                        <div className="row showRequests" >
-                            {Object.keys(this.state.requests).map(key => (
-                                <Request
-                                    key={key}
-                                    details={this.state.requests[key]}
-                                    sendInterest={this.sendInterest}
-                                    removeInterest={this.removeInterest}
-                                    checkStudent={this.checkStudent}
-                                />
-                            ))}
-                        </div>
+                        {this.state.requests && this.state.requests.length > 0?
+                            <div className="row showRequests" >
+                                {Object.keys(this.state.requests).map(key => (
+                                    <Request
+                                        key={key}
+                                        details={this.state.requests[key]}
+                                        sendInterest={this.sendInterest}
+                                        removeInterest={this.removeInterest}
+                                        checkStudent={this.checkStudent}
+                                    />
+                                ))}
+                            </div>
+                            :
+                            <p className="no-requests">No Requests.</p>
+                        }
                         <div className="row paginationContainer">
                             {this.state.totalPages < 2?
                                 ""
