@@ -286,3 +286,12 @@ select {
 .back:hover {
   cursor: pointer;
 }
+#plus-icon {
+  margin: 65px;
+}
+#register-dropzone {
+  margin-top: 90px;
+}
+#register-dropzone:hover {
+  cursor: pointer;
+}

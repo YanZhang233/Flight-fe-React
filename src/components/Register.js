@@ -3,11 +3,15 @@ import axios from "../base.js";
 import Qs from 'qs';
 import { withRouter } from "react-router-dom";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import Dropzone from 'react-dropzone';
 
 class Register extends React.Component {
 
     state = {
-        student: true
+        student: true,
+        avatarFile: [],
+        avatarPreview: null,
+        avatar: null
     }
 
     emailRef = React.createRef();
@@ -29,41 +33,21 @@ class Register extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
 
-        const email = this.emailRef.value.value;
-        const wechat = this.wechatRef.value.value;
         const role = this.roleRef.value.value;
-        const password = this.passRef.value.value;
 
 
         if(role === `student`) {
-            const graduatedFrom = this.graduatedFromRef.value.value;
-            const gender = this.genderRef.value.value;
-            const homeTown = this.homeTownRef.value.value;
-            const major = this.majorRef.value.value;
-            const actualName = this.actualNameRef.value.value;
-            axios.post(`/user/new`,
-                Qs.stringify({
-                    email,
-                    wechat,
-                    password,
-                    graduatedFrom,
-                    gender,
-                    homeTown,
-                    major,
-                    actualName
-                }),
-            )
-                .then(res => {
-                    if(res.data.status === 0) {
-                        alert("Sign up successfully as a new student!");
-                        localStorage.setItem('Email', email);
-                        localStorage.setItem('Password', password);
-                        this.props.history.push(`/`);
-                    } else {
-                        alert(res.data.msg);
-                    }
-                })
+            if(this.state.avatarFile && this.state.avatarFile.length > 0) {
+                this.uploadHandler(this.state.avatarFile[0]);
+            } else {
+                this.handleStudentSubmit();
+            }
+
         } else if(role === `volunteer`) {
+            const email = this.emailRef.value.value;
+            const wechat = this.wechatRef.value.value;
+            const password = this.passRef.value.value;
+
             axios.post(`/user/volunteer`,
                 Qs.stringify({
                     email,
@@ -74,7 +58,7 @@ class Register extends React.Component {
                 .then(res => {
                     console.log(res.data);
                     if(res.data.status === 0) {
-                        alert("Sign up successfully as a volunteer!");
+                        //alert("Sign up successfully as a volunteer!");
                         localStorage.setItem('Email', email);
                         localStorage.setItem('Password', password);
                         this.props.history.push(`/`);
@@ -85,6 +69,66 @@ class Register extends React.Component {
         }
     }
 
+    handleDrop = (dropped) => {
+        //console.log(dropped[0]);
+        this.setState({ avatarFile: dropped, avatarPreview: dropped[0].preview });
+    }
+
+    uploadHandler = (image) => {
+        console.log(image);
+        const formData = new FormData();
+        formData.append('upload_file', image);
+        axios.post(`/user/avatar`, formData
+        )
+        .then(res => {
+            console.log(res.data);
+            if(res.data.status === 0) {
+                this.setState({ avatar: res.data.data.url }, this.handleStudentSubmit);
+            } else {
+                alert("Upload avatar failed!");
+            }    
+        })
+    }
+
+    handleStudentSubmit = () => {
+
+        console.log(this.state.avatar);
+
+        const email = this.emailRef.value.value;
+        const wechat = this.wechatRef.value.value;
+        const password = this.passRef.value.value;
+        const graduatedFrom = this.graduatedFromRef.value.value;
+        const gender = this.genderRef.value.value;
+        const homeTown = this.homeTownRef.value.value;
+        const major = this.majorRef.value.value;
+        const actualName = this.actualNameRef.value.value;
+        const avatar = this.state.avatar;
+        axios.post(`/user/new`, 
+            Qs.stringify({
+                email,
+                wechat,
+                password,
+                graduatedFrom,
+                gender,
+                homeTown,
+                major,
+                actualName,
+                avatar
+            })
+        )
+            .then(res => {
+                if(res.data.status === 0) {
+                    //alert("Sign up successfully as a new student!");
+                    localStorage.setItem('Email', email);
+                    localStorage.setItem('Password', password);
+                    this.props.history.push(`/`);
+                } else {
+                    alert(res.data.msg);
+                }
+            })
+
+    }
+ 
     render() {
         return (
             <ReactCSSTransitionGroup
@@ -97,6 +141,29 @@ class Register extends React.Component {
 
                 <div className="container">
                     <div className="row">
+
+                    {this.state.student?
+
+                        <div className="col-xs-12 col-md-3">
+                            <div className="col-md-12" id="thumContainer">
+                                <div id="infoAvatar">
+                                    <Dropzone
+                                        id="register-dropzone"
+                                        accept="image/jpeg, image/png"
+                                        onDrop={this.handleDrop}           
+                                    >
+                                        {this.state.avatarPreview?
+                                            <img  className="img-responsive" src={this.state.avatarPreview} />
+                                            :
+                                            <i className="fas fa-plus fa-5x" id="plus-icon"></i>
+                                        }
+                                    </Dropzone>
+                                </div>
+                            </div>
+                        </div>
+                    :""
+                    }
+
                         <div className="formDiv">
                             <h2 className="formHeader">Sign Up</h2>
                             <form  onSubmit={this.handleSubmit}>

@@ -37,8 +37,9 @@ class Request extends React.Component {
         } else {
             this.props.sendInterest(id);
         }
-        const updatedInterest = !this.state.haveInterest;
-        this.setState({ haveInterest: updatedInterest });
+        this.checkInterest();
+        // const updatedInterest = !this.state.haveInterest;
+        // this.setState({ haveInterest: updatedInterest });
     }
     
     render() {

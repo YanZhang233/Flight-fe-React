@@ -61,6 +61,12 @@ class Volunteer extends React.Component {
         }
     }
 
+    handleKeyPress = event => {
+        if(event.key === "Enter") {
+            this.searchRequests();
+        }
+    }
+
     sendInterest = (requestId) => {
         axios.patch(`/flight/${requestId}`
         )
@@ -113,6 +119,8 @@ class Volunteer extends React.Component {
                                     name="location"
                                     ref={this.locationRef}
                                     type="text"
+                                    onKeyPress={this.handleKeyPress}
+                                    onChange={this.searchRequests}
                                 />
                             </div>
                             <div className="col-xs-4 search-btn-con">
