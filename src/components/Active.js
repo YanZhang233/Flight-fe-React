@@ -14,7 +14,8 @@ class Active extends React.Component {
     render () {
         return (
             <div className="active">
-                <p>Active your email successfully!</p>
+                <p>Active your email successfully! Back to system 5 seconds later...</p>
+                <br/>
                 <button className="btn btn-primary" onClick={this.handleClick}>Go To Flight</button>
             </div>
         );
