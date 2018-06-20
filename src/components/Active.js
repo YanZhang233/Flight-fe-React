@@ -1,10 +1,22 @@
 import React from "react";
+import axios from "../base.js";
 import { withRouter } from "react-router-dom";
 
 class Active extends React.Component {
 
     state = {
         count: 5
+    }
+
+    componentWillMount() {
+        const { params } = this.props.match;
+        const id = params.id;
+        const token = params.token;
+        axios.patch(`/email/${id}/${token}`
+        )
+        .then(res => {
+            console.log(res.data);
+        })
     }
 
     componentDidMount() {

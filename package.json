@@ -18,7 +18,7 @@
     "react": "^16.3.0-alpha.1",
     "react-addons-css-transition-group": "^15.6.2",
     "react-avatar-cropper": "^0.1.3",
-    "react-avatar-editor": "^11.0.3",
+    "react-avatar-editor": "^11.0.4",
     "react-cookies": "^0.1.0",
     "react-dom": "^16.3.0-alpha.1",
     "react-dropzone": "^4.2.11",
