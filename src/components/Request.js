@@ -77,7 +77,7 @@ class Request extends React.Component {
                                        className="thumbnail"
                                        onClick={() => this.props.checkStudent(requestUserId)}
                                     >
-                                        <img id="request-avatar" src={avatar} />
+                                        <img id="avatar-display" src={avatar} />
                                     </a>
 
                                     <div className="person">

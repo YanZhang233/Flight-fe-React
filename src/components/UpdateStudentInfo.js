@@ -63,7 +63,7 @@ class UpdateStudentInfo extends React.Component {
                             <div className="col-xs-12 col-md-3">
                                 <div className="col-md-12" id="thumContainer">
                                     <div className="thumbnail" id="infoAvatar" >
-                                        <img className="img-responsive" style={{width: 205}, {height: 195}} src={this.state.avatar} />
+                                        <img className="img-responsive" id="avatar-display" src={this.state.avatar} />
                                     </div>
                                 </div>
 
@@ -75,6 +75,7 @@ class UpdateStudentInfo extends React.Component {
                                         id="input-avatar"
                                         name="upload_file"
                                         type="file"
+                                        accept="image/*"
                                         onChange={this.avatarChangeHandler}
                                     />
                                 </div>

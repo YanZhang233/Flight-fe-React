@@ -149,7 +149,7 @@ class App extends React.Component {
                                 </div>
                                 <div className="collapse navbar-collapse" id="collapsebar">
                                     <ul className="nav navbar-nav navbar-right">
-                                        <li><a onClick={this.activeEmail}>ActiveEmail <i className="fas fa-envelope"></i></a></li>
+                                        <li><a onClick={this.activeEmail}>ActivateEmail <i className="fas fa-envelope"></i></a></li>
                                         <li><a onClick={this.logout}>Logout <i className="fas fa-sign-out-alt"></i></a></li>
                                     </ul>
                                 </div>
