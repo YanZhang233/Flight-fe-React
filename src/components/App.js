@@ -79,7 +79,7 @@ class App extends React.Component {
         )
         .then(res => {
             console.log(res.data);
-            
+            alert(res.data.msg);
         })
     }
 
@@ -127,6 +127,9 @@ class App extends React.Component {
                             goToPerson = {this.state.goToPerson}
                             infoSwitch = {this.infoSwitch}
                         />
+                        <p className="copyright">
+                            2018©FoggyStudio
+                        </p>
                     </React.Fragment>
                 );
             } else if(this.state.role === 2) {
@@ -156,6 +159,10 @@ class App extends React.Component {
                         <Volunteer 
                             volunteerId = {this.state.uid}
                         />
+
+                        <p className="copyright">
+                            2018©FoggyStudio
+                        </p>
                     </React.Fragment>
                 );
             } else {

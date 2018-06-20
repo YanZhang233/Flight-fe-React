@@ -281,6 +281,10 @@ class Register extends React.Component {
                     </div>
 
                 </div>
+                
+                <p className="copyright">
+                    2018©FoggyStudio
+                </p>
 
             </ReactCSSTransitionGroup>
         );

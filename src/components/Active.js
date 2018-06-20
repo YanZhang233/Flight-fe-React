@@ -39,6 +39,11 @@ class Active extends React.Component {
                 <p>Active your email successfully! Back to system {this.state.count} seconds later...</p>
                 <br/>
                 <button className="btn btn-primary" onClick={this.handleClick}>Go To Flight</button>
+                <div>
+                    <p id="active-copyright" className="copyright">
+                        2018©FoggyStudio
+                    </p>
+                </div>
             </div>
         );
     }

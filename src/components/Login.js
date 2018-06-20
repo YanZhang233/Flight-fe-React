@@ -80,8 +80,9 @@ class Login extends React.Component {
 
                 </div>
 
-
-
+                <p className="copyright">
+                    2018©FoggyStudio
+                </p>
 
             </ReactCSSTransitionGroup>
         );
