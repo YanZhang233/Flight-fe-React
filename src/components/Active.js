@@ -16,6 +16,7 @@ class Active extends React.Component {
         )
         .then(res => {
             console.log(res.data);
+            alert(res.data.msg);
         })
     }
 
