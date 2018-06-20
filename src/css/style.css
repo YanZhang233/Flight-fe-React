@@ -163,7 +163,7 @@ select {
 .thumbnail {
   height: 80px;
   width: 80px;
-  maigin: 0;
+  margin: 0;
   float: left;
 }
 .thumbnail:hover {
@@ -331,4 +331,8 @@ a:hover {
 #active-copyright {
   font-size: 14px;
   margin-top: 250px;
+}
+#request-avatar {
+  width: 100%;
+  height: 100%;
 }

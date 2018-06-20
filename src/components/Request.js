@@ -73,10 +73,11 @@ class Request extends React.Component {
                             <div className="display-content-container" >
 
                                 <div className="row infoLine" id="avatarLine">
-                                    <a className="thumbnail"
+                                    <a
+                                       className="thumbnail"
                                        onClick={() => this.props.checkStudent(requestUserId)}
                                     >
-                                        <img src={avatar} />
+                                        <img id="request-avatar" src={avatar} />
                                     </a>
 
                                     <div className="person">

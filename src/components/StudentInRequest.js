@@ -48,8 +48,7 @@ class StudentInRequest extends React.Component {
                             <div className="col-xs-12 col-md-3">
                                 <div className="col-md-12" id="thumContainer">
                                     <div className="thumbnail" id="infoAvatar" >
-                                        <img  className="img-responsive" src={avatar} />
-
+                                        <img className="img-responsive" style={{width: 205}, {height: 195}} src={avatar} />
                                     </div>
                                 </div>
 
