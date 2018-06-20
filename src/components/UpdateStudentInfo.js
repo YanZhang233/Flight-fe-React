@@ -63,7 +63,7 @@ class UpdateStudentInfo extends React.Component {
                             <div className="col-xs-12 col-md-3">
                                 <div className="col-md-12" id="thumContainer">
                                     <div className="thumbnail" id="infoAvatar" >
-                                        <img  className="img-responsive" src={this.state.avatar} />
+                                        <img className="img-responsive img-size" src={this.state.avatar} />
                                     </div>
                                 </div>
 

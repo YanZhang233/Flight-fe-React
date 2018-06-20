@@ -153,7 +153,10 @@ class Register extends React.Component {
                                         onDrop={this.handleDrop}           
                                     >
                                         {this.state.avatarPreview?
-                                            <img  className="img-responsive" src={this.state.avatarPreview} />
+                                            <img 
+                                                className="img-responsive img-size"
+                                                src={this.state.avatarPreview} 
+                                            />
                                             :
                                             <i className="fas fa-plus fa-5x" id="plus-icon"></i>
                                         }
