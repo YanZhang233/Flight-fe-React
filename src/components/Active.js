@@ -9,9 +9,12 @@ class Active extends React.Component {
     }
 
     componentWillMount() {
-        const { params } = this.props.match;
-        const id = params.id;
-        const token = params.token;
+        const search = this.props.location.search;
+        const params = new URLSearchParams(search);
+        const id = params.get('id');
+        const token = params.get('token');
+        console.log(id);
+        console.log(token);
         axios.patch(`/email/${id}/${token}`
         )
         .then(res => {
