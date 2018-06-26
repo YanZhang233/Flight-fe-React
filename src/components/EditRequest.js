@@ -35,7 +35,7 @@ class EditRequest extends React.Component {
                           <form onSubmit={this.handleUpdate}>
 
                               <div className="form-group">
-                                  <label htmlFor="airport">Airport</label>
+                                  <label htmlFor="airport">Airport*</label>
                                   <select className="form-control" id="airport" name="airport" onChange={this.handleChange} value={this.state.defaultRequest.airport}>
                                       <option value="Washington Dulles International Airport">Washington Dulles International Airport</option>
                                       <option value="Ronald Reagan Washington National Airport">Ronald Reagan Washington National Airport</option>
@@ -44,8 +44,9 @@ class EditRequest extends React.Component {
                               </div>
 
                               <div className="form-group">
-                                  <label htmlFor="destination">Destination</label>
+                                  <label htmlFor="destination">Destination*</label>
                                   <input
+                                      required
                                       className="form-control"
                                       id="destination"
                                       name="destination"
@@ -56,8 +57,9 @@ class EditRequest extends React.Component {
                               </div>
 
                               <div className="form-group">
-                                  <label htmlFor="time">Arrival Time(e.g. 2018-08-08 EST)</label>
+                                  <label htmlFor="time">Arrival Time(e.g. 2018-08-08 EST)*</label>
                                   <input
+                                      required
                                       className="form-control"
                                       id="time"
                                       name="time"
@@ -83,7 +85,7 @@ class EditRequest extends React.Component {
 
 
                               <div className="form-group">
-                                  <label htmlFor="airport">Number Of People</label>
+                                  <label htmlFor="airport">Number Of People*</label>
                                   <select  id="airport" className="form-control" name="numOfPeople" onChange={this.handleChange} value={this.state.defaultRequest.numOfPeople}>
                                       <option value="1">1</option>
                                       <option value="2">2</option>
@@ -93,7 +95,7 @@ class EditRequest extends React.Component {
                               </div>
 
                               <div className="form-group">
-                                  <label htmlFor="baggage">Baggage</label>
+                                  <label htmlFor="baggage">Baggage*</label>
                                   <select  id="baggage" className="form-control" name="baggage" onChange={this.handleChange} value={this.state.defaultRequest.baggage}>
                                       <option value="1">1</option>
                                       <option value="2">2</option>

@@ -38,7 +38,7 @@ class AddRequest extends React.Component {
                   <div className="formDiv">
                       <form onSubmit={this.createRequest}>
                           <div className="form-group">
-                              <label htmlFor="airport">Airport</label>
+                              <label htmlFor="airport">Airport*</label>
                               <select  className="form-control" id="airport" name="airport" ref={this.airportRef}>
                                   <option value="Washington Dulles International Airport">Washington Dulles International Airport</option>
                                   <option value="Ronald Reagan Washington National Airport">Ronald Reagan Washington National Airport</option>
@@ -46,8 +46,9 @@ class AddRequest extends React.Component {
                               </select>
                           </div>
                           <div className="form-group">
-                              <label htmlFor="destination">Destination</label>
+                              <label htmlFor="destination">Destination*</label>
                               <input
+                                  required
                                   className="form-control"
                                   id="destination"
                                   name="destination"
@@ -57,8 +58,9 @@ class AddRequest extends React.Component {
                           </div>
 
                           <div className="form-group">
-                              <label htmlFor="time">Arrival Time(e.g. 2018-08-08 EST)</label>
+                              <label htmlFor="time">Arrival Time(e.g. 2018-08-08 EST)*</label>
                               <input
+                                  required
                                   className="form-control"
                                   id="time"
                                   name="time"
@@ -69,7 +71,7 @@ class AddRequest extends React.Component {
                           </div>
 
                           <div className="form-group">
-                              <label htmlFor="flightInfo">flightInfo</label>
+                              <label htmlFor="flightInfo">Flight Information</label>
                               <input
                                   className="form-control"
                                   id="flightInfo"
@@ -80,7 +82,7 @@ class AddRequest extends React.Component {
                           </div>
 
                           <div className="form-group">
-                              <label htmlFor="numOfPeople">Number Of People</label>
+                              <label htmlFor="numOfPeople">Number Of People*</label>
                               <select  className="form-control" id="numOfPeople" name="numOfPeople" ref={this.numOfPeopleRef}>
                                   <option value="1">1</option>
                                   <option value="2">2</option>
@@ -90,7 +92,7 @@ class AddRequest extends React.Component {
                           </div>
 
                           <div className="form-group">
-                              <label htmlFor="baggage">number of baggage</label>
+                              <label htmlFor="baggage">number of baggage*</label>
                               <select  className="form-control" id="baggage" name="baggage" ref={this.baggageRef}>
                                   <option value="1">1</option>
                                   <option value="2">2</option>

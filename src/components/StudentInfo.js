@@ -27,6 +27,7 @@ class StudentInfo extends React.Component {
     updateStudentInfo = (updatedInfo, avatar) => {
         const { 
           wechat, 
+          gender,
           actualName, 
           graduatedFrom, 
           homeTown, 
@@ -36,6 +37,7 @@ class StudentInfo extends React.Component {
         axios.patch(`/user`,
                 Qs.stringify({ 
                     wechat, 
+                    gender,
                     actualName, 
                     graduatedFrom, 
                     homeTown, 
@@ -66,7 +68,7 @@ class StudentInfo extends React.Component {
               </div>
           );
         } else {
-          return <p>You Got No Information!!!</p>;
+          return <p>Loading...</p>;
         }
     }
 }

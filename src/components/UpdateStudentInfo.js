@@ -122,7 +122,7 @@ class UpdateStudentInfo extends React.Component {
 
                                         <div className="form-group">
                                             <label htmlFor="gender">Gender</label>
-                                            <select className="form-control" id="gender" name="gender" readOnly value={this.state.defaultInfo.gender}>
+                                            <select className="form-control" id="gender" name="gender" onChange={this.handleChange} value={this.state.defaultInfo.gender}>
                                                 <option value="1">Male</option>
                                                 <option value="0">Female</option>
                                             </select>

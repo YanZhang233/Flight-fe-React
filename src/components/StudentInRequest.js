@@ -162,7 +162,7 @@ class StudentInRequest extends React.Component {
 
             );
         } else {
-            return <p>No Information!!!</p>;
+            return <p>Loading...</p>;
         }
     }
 }
