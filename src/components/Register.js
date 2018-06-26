@@ -58,7 +58,7 @@ class Register extends React.Component {
                 .then(res => {
                     console.log(res.data);
                     if(res.data.status === 0) {
-                        //alert("Sign up successfully as a volunteer!");
+                        alert("Please go to your Email to activate your account!");
                         localStorage.setItem('Email', email);
                         localStorage.setItem('Password', password);
                         this.props.history.push(`/`);
@@ -282,7 +282,7 @@ class Register extends React.Component {
 
                 </div>
                 
-                <p className="copyright">
+                <p onClick={() => window.open("https://foggystudio.com")} className="copyright">
                     2018©FoggyStudio
                 </p>
 

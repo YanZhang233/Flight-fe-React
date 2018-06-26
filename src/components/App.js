@@ -127,7 +127,7 @@ class App extends React.Component {
                             goToPerson = {this.state.goToPerson}
                             infoSwitch = {this.infoSwitch}
                         />
-                        <p className="copyright">
+                        <p onClick={() => window.open("https://foggystudio.com")} className="copyright">
                             2018©FoggyStudio
                         </p>
                     </React.Fragment>
@@ -160,7 +160,7 @@ class App extends React.Component {
                             volunteerId = {this.state.uid}
                         />
 
-                        <p className="copyright">
+                        <p onClick={() => window.open("https://foggystudio.com")} className="copyright">
                             2018©FoggyStudio
                         </p>
                     </React.Fragment>

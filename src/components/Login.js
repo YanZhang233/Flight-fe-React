@@ -80,7 +80,7 @@ class Login extends React.Component {
 
                 </div>
 
-                <p className="copyright">
+                <p onClick={() => window.open("https://foggystudio.com")} className="copyright">
                     2018©FoggyStudio
                 </p>
 

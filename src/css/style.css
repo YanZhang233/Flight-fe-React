@@ -309,6 +309,7 @@ a:hover {
   text-align: center;
   color: #666;
   line-height: 30px;
+  cursor: pointer;
 }
 .no-requests {
   text-align: center;

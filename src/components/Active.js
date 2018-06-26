@@ -54,7 +54,7 @@ class Active extends React.Component {
                 <br/>
                 <button className="btn btn-primary" onClick={this.handleClick}>Go To Flight</button>
                 <div>
-                    <p id="active-copyright" className="copyright">
+                    <p onClick={() => window.open("https://foggystudio.com")} id="active-copyright" className="copyright">
                         2018©FoggyStudio
                     </p>
                 </div>

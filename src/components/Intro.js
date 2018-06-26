@@ -67,8 +67,8 @@ class Intro extends React.Component {
 
                    </div>
 
-                   <p className="copyright">
-                       2018©FoggyStudio
+                   <p onClick={() => window.open("https://foggystudio.com")} className="copyright">
+                      2018©FoggyStudio
                    </p>
 
 
