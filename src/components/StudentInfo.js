@@ -53,7 +53,7 @@ class StudentInfo extends React.Component {
             if(res.data.status === 0) {
                 this.setState({ studentInfo: res.data.data });
                 this.setState({ alertStatus: true, alertMsg: "Update your information success!" });
-                this.props.infoSwitch();
+                //this.props.infoSwitch();
             } else {
                 this.setState({ alertStatus: false, alertMsg: res.data.msg });
             }
@@ -64,12 +64,14 @@ class StudentInfo extends React.Component {
         if(this.state.studentInfo) {
           return (
               <div>
+
                 {this.state.alertMsg === null?
                     "":
-                    <Alert bsStyle={this.state.alertStatus === true? `success`:`danger`}>
+                    <Alert className="alert" bsStyle={this.state.alertStatus === true? `success`:`danger`}>
                       {this.state.alertMsg}
                     </Alert>
                 }
+            
                 <div className="entry">
                   <UpdateStudentInfo
                     default={this.state.studentInfo} 

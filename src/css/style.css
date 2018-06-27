@@ -352,3 +352,10 @@ a:hover {
   width: 100%;
   height: 100%;
 }
+.alert {
+  position: absolute;
+  top: 100;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
