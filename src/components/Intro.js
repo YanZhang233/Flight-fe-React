@@ -51,7 +51,7 @@ class Intro extends React.Component {
                               <div className="legend jumbotron">
                                 <h2>Welcome</h2>
                                 <p className="intro-content">This is a platform providing pick-up request information for the new students who are seeking for pick-up service at airport, and those people who want to give a help. </p>
-                                <p><a className="btn btn-primary btn-lg" href="/login">Get Started</a></p>
+                                <p><button className="intro-button btn btn-primary btn-lg" onClick={() => this.props.history.push("/login")}>Get Started</button></p>
                               </div>
                           </div>
                           <div>
@@ -59,7 +59,7 @@ class Intro extends React.Component {
                               <div className="legend jumbotron">
                                 <h2>FoggyStudio</h2>
                                 <p className="intro-content">A tech studio consisting of students from GWU CS, focusing on implementing interesting and practical ideas.</p>
-                                <p><a className="btn btn-primary btn-lg" target="_blank" href="https://foggystudio.com">Learn More</a></p>
+                                <p><button className="intro-button btn btn-primary btn-lg" onClick={() => window.open("https://foggystudio.com")}>Learn More</button></p>
                               </div>
                           </div>
                         </Carousel>
