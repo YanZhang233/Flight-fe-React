@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import { Carousel } from 'react-responsive-carousel';
 
 class Intro extends React.Component {
 
@@ -38,11 +39,31 @@ class Intro extends React.Component {
                >
 
                    <div className="container intro-container">
-                       <div className="jumbotron">
-                           <h1>Welcome</h1>
-                           <p className="welcome">This is a platform providing pick-up request information for the new students who are seeking for pick-up service at airport, and those people who want to give a help. </p>
-                           <p><a className="btn btn-primary btn-lg" href="/login">Get Started</a></p>
-                       </div>
+                       <Carousel className="carousel-container"
+                          showArrows={true}
+                          showStatus={false}
+                          showThumbs={false}
+                          infiniteLoop={true}
+                          autoPlay={true}
+                        >
+                          <div>
+                              <img className="carousel-img" src="/images/welcome.jpg" />
+                              <div className="legend jumbotron">
+                                <h2>Welcome</h2>
+                                <p className="intro-content">This is a platform providing pick-up request information for the new students who are seeking for pick-up service at airport, and those people who want to give a help. </p>
+                                <p><a className="btn btn-primary btn-lg" href="/login">Get Started</a></p>
+                              </div>
+                          </div>
+                          <div>
+                              <img className="carousel-img" src="/images/foggystudio.jpg" />
+                              <div className="legend jumbotron">
+                                <h2>FoggyStudio</h2>
+                                <p className="intro-content">A tech studio consisting of students from GWU CS, focusing on implementing interesting and practical ideas.</p>
+                                <p><a className="btn btn-primary btn-lg" target="_blank" href="https://foggystudio.com">Learn More</a></p>
+                              </div>
+                          </div>
+                        </Carousel>
+      
                        <div className="col-xs-12 col-md-5">
                            <h3 className="entry-title">使用说明</h3>
                            <div className="line"></div>
