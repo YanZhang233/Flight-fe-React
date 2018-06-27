@@ -3,8 +3,14 @@ import axios from "../base.js";
 import Qs from 'qs';
 import { withRouter } from "react-router-dom";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import { Alert } from "react-bootstrap";
 
 class Login extends React.Component {
+    
+    state = {
+        alertMsg: null
+    }
+
     emailRef = React.createRef();
     passRef = React.createRef();
 
@@ -27,7 +33,7 @@ class Login extends React.Component {
                     const userRole = res.data.data.role;
                     this.props.history.push(`/`)
                 } else {
-                    alert(res.data.msg);
+                    this.setState({ alertMsg: res.data.msg });
                 }
             })
     };
@@ -43,6 +49,12 @@ class Login extends React.Component {
             >
 
                 <div className="container">
+                    {this.state.alertMsg === null?
+                        "":
+                        <Alert bsStyle="danger">
+                          {this.state.alertMsg}
+                        </Alert>
+                    }
                     <div className="formDiv">
                         <h3 className="formHeader">LogIn</h3>
                         <form  onSubmit={this.handleSubmit}>

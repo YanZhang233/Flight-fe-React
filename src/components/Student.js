@@ -4,12 +4,14 @@ import Display from "./Display";
 import AddRequest from "./AddRequest";
 import axios from "../base.js";
 import Qs from 'qs';
+import { Alert } from "react-bootstrap";
 
 class Student extends React.Component {
 
     state = {
         stuId: null,
-        requestInfo: null
+        requestInfo: null,
+        alertMsg: null
     }
 
     componentWillMount() {
@@ -49,8 +51,9 @@ class Student extends React.Component {
             if(res.data.status === 0) {
                 this.findRequest();
                 //alert("Add your request success!");
+                this.setState({ alertMsg: null });
             } else {
-                alert(res.data.msg);
+                this.setState({ alertMsg: res.data.msg });
             }
         })
     }
@@ -74,8 +77,9 @@ class Student extends React.Component {
             if(res.data.status === 0) {
                 this.findRequest();
                 //alert("Update your request success!");
+                this.setState({ alertMsg: null });
             } else {
-                alert(res.data.msg);
+                this.setState({ alertMsg: res.data.msg });
             }
         })
     };
@@ -89,8 +93,9 @@ class Student extends React.Component {
                   if(res.data.status === 0) {
                     this.setState({ requestInfo: null });
                     //alert("Cancel your request success!");
+                    this.setState({ alertMsg: null });
                   } else {
-                    alert(res.data.msg);
+                    this.setState({ alertMsg: res.data.msg });
                   }
               })
         }
@@ -110,22 +115,34 @@ class Student extends React.Component {
             if(this.state.requestInfo) {
                 return (
                     <div>
-                    <Display
-                        requestInfo={this.state.requestInfo}
-                        updateRequest={this.updateRequest}
-                        deleteRequest={this.deleteRequest}
-                    />
+                        {this.state.alertMsg === null?
+                            "":
+                            <Alert bsStyle="danger">
+                              {this.state.alertMsg}
+                            </Alert>
+                        }
+                        <Display
+                            requestInfo={this.state.requestInfo}
+                            updateRequest={this.updateRequest}
+                            deleteRequest={this.deleteRequest}
+                        />
                     </div>
                 );
             }
             return (
                 <div>
-                <div className="display-info">
-                    <h2 className="info-title">Waiting for pick-up...😁</h2>
-                    <AddRequest 
-                        addRequest={this.addRequest}
-                    />
-                </div>
+                    <div className="display-info">
+                        {this.state.alertMsg === null?
+                            "":
+                            <Alert bsStyle="danger">
+                              {this.state.alertMsg}
+                            </Alert>
+                        }
+                        <h2 className="info-title">Waiting for pick-up...😁</h2>
+                        <AddRequest 
+                            addRequest={this.addRequest}
+                        />
+                    </div>
                 </div>
             );
         }

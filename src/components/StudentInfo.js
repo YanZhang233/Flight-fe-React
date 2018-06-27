@@ -2,11 +2,14 @@ import React from "react";
 import UpdateStudentInfo from "./UpdateStudentInfo";
 import axios from "../base.js";
 import Qs from 'qs';
+import { Alert } from "react-bootstrap";
 
 class StudentInfo extends React.Component {
 
     state = {
       studentInfo: null,
+      alertStatus: null,
+      alertMsg: null
     }
 
     componentWillMount() {
@@ -49,9 +52,10 @@ class StudentInfo extends React.Component {
             console.log(res.data);
             if(res.data.status === 0) {
                 this.setState({ studentInfo: res.data.data });
+                this.setState({ alertStatus: true, alertMsg: "Update your information success!" });
                 this.props.infoSwitch();
             } else {
-                alert(res.data.msg);
+                this.setState({ alertStatus: false, alertMsg: res.data.msg });
             }
         })
     };
@@ -59,12 +63,20 @@ class StudentInfo extends React.Component {
     render() {
         if(this.state.studentInfo) {
           return (
-              <div className="entry">
-                <UpdateStudentInfo
-                  default={this.state.studentInfo} 
-                  updateStudentInfo={this.updateStudentInfo}
-                  infoSwitch={this.props.infoSwitch}
-                />
+              <div>
+                {this.state.alertMsg === null?
+                    "":
+                    <Alert bsStyle={this.state.alertStatus === true? `success`:`danger`}>
+                      {this.state.alertMsg}
+                    </Alert>
+                }
+                <div className="entry">
+                  <UpdateStudentInfo
+                    default={this.state.studentInfo} 
+                    updateStudentInfo={this.updateStudentInfo}
+                    infoSwitch={this.props.infoSwitch}
+                  />
+                </div>
               </div>
           );
         } else {

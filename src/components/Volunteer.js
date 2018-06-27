@@ -3,6 +3,7 @@ import axios from "../base.js";
 import StudentInRequest from "./StudentInRequest";
 import Request from "./Request";
 import Pagination from "./Pagination";
+import { Alert } from "react-bootstrap";
 
 class Volunteer extends React.Component {
 
@@ -13,7 +14,8 @@ class Volunteer extends React.Component {
         requests: [],
         requestStudentId: null,
         currentPage: 0,
-        totalPages: null
+        totalPages: null,
+        alertMsg: null
     }
 
     componentWillMount() {
@@ -74,7 +76,7 @@ class Volunteer extends React.Component {
             if(res.data.status === 0) {
                 this.getRequests();
             } else {
-                alert(res.data.msg);
+                this.setState({ alertMsg: res.data.msg });
             }
         })
     }
@@ -86,7 +88,7 @@ class Volunteer extends React.Component {
               if(res.data.status === 0) {
                 this.getRequests();
               } else {
-                alert(res.data.msg);
+                this.setState({ alertMsg: res.data.msg });
               }
           })
     }
@@ -126,6 +128,12 @@ class Volunteer extends React.Component {
                                 <button id="search-btn" onClick={this.searchRequests}>Search</button>
                             </div>
                         </div>
+                        {this.state.alertMsg === null?
+                            "":
+                            <Alert bsStyle="danger">
+                              {this.state.alertMsg}
+                            </Alert>
+                        }
                         {this.state.requests && this.state.requests.length > 0?
                             <div className="row showRequests" >
                                 {Object.keys(this.state.requests).map(key => (

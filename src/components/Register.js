@@ -4,6 +4,7 @@ import Qs from 'qs';
 import { withRouter } from "react-router-dom";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import Dropzone from 'react-dropzone';
+import { Alert } from "react-bootstrap";
 
 class Register extends React.Component {
 
@@ -11,7 +12,8 @@ class Register extends React.Component {
         student: true,
         avatarFile: [],
         avatarPreview: null,
-        avatar: null
+        avatar: null,
+        alertMsg: null
     }
 
     emailRef = React.createRef();
@@ -63,7 +65,7 @@ class Register extends React.Component {
                         localStorage.setItem('Password', password);
                         this.props.history.push(`/`);
                     } else {
-                        alert(res.data.msg);
+                        this.setState({ alertMsg: res.data.msg });
                     }
                 })
         }
@@ -85,7 +87,7 @@ class Register extends React.Component {
             if(res.data.status === 0) {
                 this.setState({ avatar: res.data.data.url }, this.handleStudentSubmit);
             } else {
-                alert("Upload avatar failed!");
+                this.setState({ alertMsg: res.data.msg });
             }    
         })
     }
@@ -123,7 +125,7 @@ class Register extends React.Component {
                     localStorage.setItem('Password', password);
                     this.props.history.push(`/`);
                 } else {
-                    alert(res.data.msg);
+                    this.setState({ alertMsg: res.data.msg });
                 }
             })
 
@@ -140,6 +142,13 @@ class Register extends React.Component {
             >
 
                 <div className="container">
+                    {this.state.alertMsg === null?
+                        "":
+                        <Alert bsStyle="danger">
+                          {this.state.alertMsg}
+                        </Alert>
+                    }
+                    
                     <div className="row">
 
                     {this.state.student?
