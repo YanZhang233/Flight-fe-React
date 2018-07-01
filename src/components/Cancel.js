@@ -7,10 +7,10 @@ class Cancel extends React.Component {
     state = {
         count: 5,
         success: null,
-        msg: null
+        msg: null 
     }
 
-    componentWillMount() {
+    handleCancel = () => {
         const search = this.props.location.search;
         const params = new URLSearchParams(search);
         const id = params.get('id');
@@ -37,20 +37,33 @@ class Cancel extends React.Component {
         this.setState({ count: time });
     }
 
-    handleClick = () => {
+    handleBack = () => {
         this.props.history.push(`/`);
     }
 
     render () {
+        
         return (
             <div className="activate">
-                {this.state.success === true?
-                    <p>Cancel email notification successfully! Back to system {this.state.count} seconds later...</p>
+                {this.state.success === null? 
+                    <div>
+                        <p>You will no longer receive the information about the coming students, so are you sure to cancel the Email notification?</p>
+                        <br/>
+                        <button className="cancel-button btn btn-primary" onClick={this.handleCancel}>Cancel Notification</button>
+                        <br/>
+                        <button className="cancel-button btn btn-primary" onClick={this.handleBack}>Back To Flight</button>
+                    </div>
                     :
-                    <p>{this.state.msg}</p>
+                    <div>
+                        {this.state.success === true?
+                            <p>Cancel email notification successfully! Back to system {this.state.count} seconds later...</p>
+                            :
+                            <p>{this.state.msg}</p>
+                        }
+                        <br/>
+                        <button className="cancel-button btn btn-primary" onClick={this.handleBack}>Go To Flight</button>
+                    </div>
                 }
-                <br/>
-                <button className="btn btn-primary" onClick={this.handleClick}>Go To Flight</button>
                 <div>
                     <p onClick={() => window.open("https://foggystudio.com")} id="active-copyright" className="copyright">
                         2018©FoggyStudio
@@ -58,6 +71,7 @@ class Cancel extends React.Component {
                 </div>
             </div>
         );
+        
     }
 
 }
