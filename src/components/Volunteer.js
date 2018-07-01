@@ -14,8 +14,7 @@ class Volunteer extends React.Component {
         requests: [],
         requestStudentId: null,
         currentPage: 0,
-        totalPages: null,
-        alertMsg: null
+        totalPages: null
     }
 
     componentWillMount() {
@@ -74,9 +73,10 @@ class Volunteer extends React.Component {
         )
         .then(res => {
             if(res.data.status === 0) {
+                this.props.handleAlert(true, res.data.msg);
                 this.getRequests();
             } else {
-                this.setState({ alertMsg: res.data.msg });
+                this.props.handleAlert(false, res.data.msg);
             }
         })
     }
@@ -86,9 +86,10 @@ class Volunteer extends React.Component {
           )
           .then(res => {
               if(res.data.status === 0) {
+                this.props.handleAlert(true, res.data.msg);
                 this.getRequests();
               } else {
-                this.setState({ alertMsg: res.data.msg });
+                this.props.handleAlert(false, res.data.msg);
               }
           })
     }
@@ -128,12 +129,6 @@ class Volunteer extends React.Component {
                                 <button id="search-btn" onClick={this.searchRequests}>Search</button>
                             </div>
                         </div>
-                        {this.state.alertMsg === null?
-                            "":
-                            <Alert bsStyle="danger">
-                              {this.state.alertMsg}
-                            </Alert>
-                        }
                         {this.state.requests && this.state.requests.length > 0?
                             <div className="row showRequests" >
                                 {Object.keys(this.state.requests).map(key => (
@@ -149,7 +144,7 @@ class Volunteer extends React.Component {
                             :
                             <p className="no-requests">No Requests.</p>
                         }
-                        <div className="row paginationContainer">
+                        <div className="row">
                             {this.state.totalPages < 2?
                                 ""
                                 :

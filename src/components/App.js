@@ -8,6 +8,7 @@ import Student from "./Student";
 import Volunteer from "./Volunteer";
 import NotFound from "./NotFound";
 import { withRouter } from "react-router-dom";
+import { Alert } from "react-bootstrap";
 
 class App extends React.Component {
 
@@ -16,7 +17,9 @@ class App extends React.Component {
     state = {
         uid: null,
         role: null,
-        goToPerson: false
+        goToPerson: false,
+        alertStatus: null,
+        alertMsg: null
     }
 
     componentWillMount() {
@@ -79,13 +82,21 @@ class App extends React.Component {
         )
         .then(res => {
             console.log(res.data);
-            alert(res.data.msg);
+            if(res.data.status === 0) {
+                this.handleAlert(true, res.data.msg + ` and log in again`);
+            } else {
+                this.handleAlert(false, res.data.msg);
+            }
         })
     }
 
     infoSwitch = () => {
         const ifGoToPerson = !this.state.goToPerson;
         this.setState({ goToPerson: ifGoToPerson });
+    }
+
+    handleAlert = (status, msg) => {
+        this.setState({ alertStatus: status, alertMsg: msg });
     }
 
     render() {
@@ -156,8 +167,18 @@ class App extends React.Component {
                             </div>
                         </nav>
 
+                        {this.state.alertMsg === null?
+                            "":
+                            <div className="row showAlert">
+                                <Alert bsStyle={this.state.alertStatus === true? `success`:`danger`}>
+                                  {this.state.alertMsg}
+                                </Alert>
+                            </div>
+                        }
+
                         <Volunteer 
                             volunteerId = {this.state.uid}
+                            handleAlert = {this.handleAlert}
                         />
 
                         <p onClick={() => window.open("https://foggystudio.com")} className="copyright">

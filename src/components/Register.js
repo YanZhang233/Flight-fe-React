@@ -144,9 +144,11 @@ class Register extends React.Component {
                 <div className="container">
                     {this.state.alertMsg === null?
                         "":
-                        <Alert bsStyle="danger">
-                          {this.state.alertMsg}
-                        </Alert>
+                        <div className="row showAlert">
+                            <Alert bsStyle="danger">
+                              {this.state.alertMsg}
+                            </Alert>
+                        </div>
                     }
                     
                     <div className="row">

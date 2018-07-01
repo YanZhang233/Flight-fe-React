@@ -202,10 +202,8 @@ select {
   padding-left: 20px;
   margin-top: 20px;
 }
-.paginationContainer {
-  width: 200px;
-  height: 80px;
-  margin: 0 auto;
+.pagination {
+  font-size: 20px;
 }
 #infoAvatar {
   width: 200px;
@@ -276,7 +274,7 @@ select {
   cursor: pointer;
 }
 .head-con {
-  margin: 0 auto 60px auto;
+  margin: 0 auto 50px auto;
   position: relative;
   overflow: hidden;
 }
@@ -332,9 +330,7 @@ a:hover {
   font-style: oblique;
 }
 .active {
-  margin: 100px;
-  text-align: center;
-  font-size: 20px;
+  margin: 0;
   color: #3e588f;
 }
 .intro-container {
@@ -358,4 +354,10 @@ a:hover {
   left: 0;
   right: 0;
   text-align: center;
+}
+.showAlert {
+  margin: 0 auto 85px auto;
+}
+.saveInfo:focus {
+  outline: none;
 }

@@ -30,39 +30,41 @@ class Pagination extends React.Component {
 
         return (
             <nav aria-label="Page navigation example">
-              <ul className="pagination">
-                <li className="page-item">
-                  <a 
-                    className="page-link" 
-                    aria-label="Previous" 
-                    onClick={() => this.handleClick(currentPage - 1)}
-                  >
-                    <span aria-hidden="true">&laquo;</span>
-                    <span className="sr-only">Previous</span>
-                  </a>
-                </li>
-                {previous >= 0?
-                    <li className={`page-item ${previous===currentPage?"active":""}`}><a className="page-link" onClick={() => this.handleClick(previous)}>{previous + 1}</a></li>
-                    :
-                    ""
-                }
-                <li className={`page-item ${current===currentPage?"active":""}`}><a className="page-link" onClick={() => this.handleClick(current)}>{current + 1}</a></li>
-                {next < this.props.totalPages?
-                    <li className={`page-item ${next===currentPage?"active":""}`}><a className="page-link" onClick={() => this.handleClick(next)}>{next + 1}</a></li>
-                    :
-                    ""
-                }
-                <li className="page-item">
-                  <a 
-                    className="page-link" 
-                    aria-label="Next" 
-                    onClick={() => this.handleClick(currentPage + 1)}
-                >
-                    <span aria-hidden="true">&raquo;</span>
-                    <span className="sr-only">Next</span>
-                  </a>
-                </li>
-              </ul>
+                <div className="text-center">
+                  <ul className="pagination">
+                    <li className="page-item">
+                      <a 
+                        className="page-link" 
+                        aria-label="Previous" 
+                        onClick={() => this.handleClick(currentPage - 1)}
+                      >
+                        <span aria-hidden="true">&laquo;</span>
+                        <span className="sr-only">Previous</span>
+                      </a>
+                    </li>
+                    {previous >= 0?
+                        <li className={`page-item ${previous===currentPage?"active":""}`}><a className="page-link" onClick={() => this.handleClick(previous)}>{previous + 1}</a></li>
+                        :
+                        ""
+                    }
+                    <li className={`page-item ${current===currentPage?"active":""}`}><a className="page-link" onClick={() => this.handleClick(current)}>{current + 1}</a></li>
+                    {next < this.props.totalPages?
+                        <li className={`page-item ${next===currentPage?"active":""}`}><a className="page-link" onClick={() => this.handleClick(next)}>{next + 1}</a></li>
+                        :
+                        ""
+                    }
+                    <li className="page-item">
+                      <a 
+                        className="page-link" 
+                        aria-label="Next" 
+                        onClick={() => this.handleClick(currentPage + 1)}
+                    >
+                        <span aria-hidden="true">&raquo;</span>
+                        <span className="sr-only">Next</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
             </nav>
         );
         

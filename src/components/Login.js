@@ -47,13 +47,14 @@ class Login extends React.Component {
                 transitionEnter={ false }
                 transitionLeave={ false }
             >
-
                 <div className="container">
                     {this.state.alertMsg === null?
                         "":
-                        <Alert bsStyle="danger">
-                          {this.state.alertMsg}
-                        </Alert>
+                        <div className="row showAlert">
+                            <Alert bsStyle="danger">
+                              {this.state.alertMsg}
+                            </Alert>
+                        </div>
                     }
                     <div className="formDiv">
                         <h3 className="formHeader">LogIn</h3>

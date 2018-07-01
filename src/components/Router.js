@@ -4,6 +4,7 @@ import App from "./App";
 import Login from "./Login";
 import Register from "./Register";
 import Active from "./Active";
+import Cancel from "./Cancel";
 import NotFound from "./NotFound";
 
 const Router = () => (
@@ -13,6 +14,7 @@ const Router = () => (
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/active" component={Active} />
+      <Route path="/cancel" component={Cancel} />
       <Route component={NotFound} />
     </Switch>
   </BrowserRouter>
