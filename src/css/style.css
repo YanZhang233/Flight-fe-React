@@ -198,6 +198,9 @@ select {
 .person {
   margin-left: 100px;
 }
+.request-content {
+  height: 180px;
+}
 .description {
   padding-left: 20px;
   margin-top: 20px;

@@ -93,7 +93,7 @@ class Request extends React.Component {
 
                                 </div>
 
-
+                                <div className="request-content">
                                 <div className="row infoLine" >
                              <span className="info">
                                 <FontAwesomeIcon icon={faCar} />  {airport}
@@ -126,6 +126,7 @@ class Request extends React.Component {
 
 
                                 <p className="description">{description}</p>
+                                </div>
 
                                 {this.state.haveInterest ?
                                     <button className="btn btn-danger helpButton" onClick={this.handleClick}>Cancel help</button>
