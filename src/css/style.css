@@ -208,6 +208,10 @@ select {
 .pagination {
   font-size: 20px;
 }
+.active {
+  margin: 0;
+  color: #3e588f;
+}
 #infoAvatar {
   width: 200px;
   height: 200px;
@@ -332,8 +336,10 @@ a:hover {
   font-size: 30px;
   font-style: oblique;
 }
-.active {
-  margin: 0;
+.activate {
+  margin: 100px;
+  text-align: center;
+  font-size: 20px;
   color: #3e588f;
 }
 .intro-container {

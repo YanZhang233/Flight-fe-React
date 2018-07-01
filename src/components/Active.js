@@ -45,7 +45,7 @@ class Active extends React.Component {
 
     render () {
         return (
-            <div className="active">
+            <div className="activate">
                 {this.state.success === true?
                     <p>Active your email successfully! Back to system {this.state.count} seconds later...</p>
                     :
